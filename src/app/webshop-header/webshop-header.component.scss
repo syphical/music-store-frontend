@@ -1,0 +1,79 @@
+@use "../../variables" as *;
+
+.header-container {
+  height: 4.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary;
+  border-bottom: 1px solid $primary;
+
+  .nav-brand {
+    padding-top: 0.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: left;
+    margin-left: 10rem;
+    letter-spacing: 3.5px;
+
+    li a {
+      font-weight: 800;
+      font-size: 1.6rem;
+      padding: 12px 16px;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+
+      a {
+        display: block;
+        color: $primary;
+        text-decoration: none;
+        padding: 14px 16px;
+        font-weight: 600;
+
+        :hover {
+          color: #0e0e0e;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.nav-links {
+  padding-top: 0.4rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: right;
+  margin-right: 10rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.searchbar {
+  height: 2.4rem;
+  width: 30rem;
+  border-radius: 0.25rem;
+  border-style: none;
+  background-color: #ededed;
+  padding: 0 1rem;
+  outline: none;
+
+  .searchbar:focus {
+    border-style: solid;
+    border-width: 2px;
+    border-color: $primary;
+  }
+}

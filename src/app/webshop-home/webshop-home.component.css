@@ -1,0 +1,64 @@
+app-webshop-product-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.featured-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+.featured-section .featured-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #046973;
+  font-weight: bold;
+}
+
+.all-products-box {
+  margin-top: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #065a61;
+  width: 75rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+}
+.all-products-box h2 {
+  font-size: 3rem;
+  color: white;
+}
+
+.category-container {
+  padding-top: 2rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70rem;
+  height: 10rem;
+}
+.category-container .category-box {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: #065a61;
+  height: 7.5rem;
+  width: 15rem;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+.category-container .category-box h3 {
+  margin-top: 43px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 1.4rem;
+}
+
+/*# sourceMappingURL=webshop-home.component.css.map */

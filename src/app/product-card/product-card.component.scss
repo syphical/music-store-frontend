@@ -1,0 +1,67 @@
+@use "../../variables" as *;
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+  min-height: 30rem;
+  background-color: #f1f1f1;
+  border-radius: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+}
+
+.product-container img {
+  width: 350px;
+  height: 350px;
+  margin: auto;
+}
+
+.product-informatie {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.product-naam {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.product-artiest {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+.product-prijs {
+  font-weight: bold;
+}
+
+.koopbutton {
+  align-self: flex-start;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  border: 0;
+  padding: 7px 16px;
+  min-height: 36px;
+  min-width: 36px;
+  color: white;
+  background: $primary;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+  :hover {
+    background: #b55e55;
+  }
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 0;
+}

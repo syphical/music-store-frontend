@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {WebshopHomeComponent} from './webshop-home/webshop-home.component';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'angularCodeAlongDD1';
+  title = 'lutetiaWebshop';
 }

@@ -4,6 +4,6 @@
     <p class="product-artiest">{{ product.artist.name }}</p>
     <p class="product-naam">{{ product.name }}</p>
     <p class="product-prijs">{{ product.price | currency:"EUR":"symbol":"1.2-2" }}</p>
-    <button class="koopbutton">In winkelwagen</button>
+    <button class="koopbutton" (click)="addToCart()">In winkelwagen</button>
   </div>
 </div>

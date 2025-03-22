@@ -1,7 +1,6 @@
-import {Component, inject, Input} from '@angular/core';
-import {CurrencyPipe, NgOptimizedImage} from '@angular/common';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CurrencyPipe} from '@angular/common';
 import {Product} from '../models/Product';
-import {ProductService} from '../services/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -12,12 +11,10 @@ import {ProductService} from '../services/product.service';
   styleUrl: './product-card.component.scss'
 })
 export class ProductCardComponent {
-  // @Input() prijs!: string;
-  // @Input() imagePath!: string;
-  // @Input() naam!: string;
-  // @Input() beschrijving!: string;
-
-
   @Input({required: true}) public product!: Product;
+  @Output() productAdded = new EventEmitter<Product>();
 
+  addToCart() {
+    this.productAdded.emit(this.product);
+  }
 }

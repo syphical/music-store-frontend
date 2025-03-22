@@ -42,7 +42,7 @@
         font-weight: 600;
 
         :hover {
-          color: #0e0e0e;
+          color: darken($primary, 10%);
           cursor: pointer;
         }
       }

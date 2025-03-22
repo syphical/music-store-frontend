@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import {WebshopHomeComponent} from './webshop-home/webshop-home.component';
 import {environment} from '../environments/environment';
 import { WebshopHeaderComponent } from './webshop-header/webshop-header.component';
+import {FooterComponent} from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WebshopHeaderComponent],
+  imports: [RouterOutlet, WebshopHeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

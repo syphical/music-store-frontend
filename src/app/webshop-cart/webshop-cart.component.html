@@ -1,18 +1,22 @@
-<div>
-  <h1>Cart</h1>
+<div class="cart-container">
+  <h1 class="cart-title">Winkelwagen</h1>
 
   @if (cartItems().length === 0) {
-    <p>Your cart is empty!</p>
+    <p class="empty-cart">Je winkelwagen is leeg!</p>
   } @else {
-    <div>
+    <div class="cart-items">
       @for (item of cartItems() ; track item.product.id) {
-        <div>
-          <h3>{{ item.product.name }}</h3>
-          <p>{{ item.product.artist.name }}</p>
-          <p>{{ item.product.price | currency:"EUR":"symbol":"1.2-2" }}</p>
-          <p>Quantity: {{ item.quantity }}</p>
+        <div class="cart-item">
+          <img [src]="item.product.imagePath || '../../assets/UbermenschPINK.webp'" alt="Product image">
+          <div class="item-details">
+            <h3>{{ item.product.name }}</h3>
+            <p>{{ item.product.artist.name }}</p>
+            <p>{{ item.product.price | currency:"EUR":"symbol":"1.2-2" }}</p>
+            <p>Aantal: {{ item.quantity }}</p>
+            <button class="remove-button" (click)="removeItem(item.product.id)">Verwijderen</button>
+          </div>
         </div>
-          }
+      }
     </div>
   }
 </div>

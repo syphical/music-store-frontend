@@ -13,7 +13,11 @@ export interface CartItem {
 export class CartService {
   private cartItems = signal<CartItem[]>([]);
 
-  getCartItems () {
+  constructor() {
+    this.loadCartFromLocalStorage();
+  }
+
+  getCartItems() {
     return this.cartItems;
   }
 
@@ -31,9 +35,29 @@ export class CartService {
     } else {
       this.cartItems.set([...currentItems, { product, quantity: 1}]);
     }
+
+    this.saveCartToLocalStorage();
   }
 
   getCartItemCount () {
     return this.cartItems().reduce((count, item) => count + item.quantity, 0);
+  }
+
+  removeFromCart(productId: number) {
+    const currentItems = this.cartItems();
+    const updatedItems = currentItems.filter(item => item.product.id !== productId);
+    this.cartItems.set(updatedItems);
+    this.saveCartToLocalStorage();
+  }
+
+  private saveCartToLocalStorage() {
+    localStorage.setItem("cartItems", JSON.stringify(this.cartItems()));
+  }
+
+  private loadCartFromLocalStorage() {
+    const savedCart = localStorage.getItem("cartItems");
+    if (savedCart) {
+      this.cartItems.set(JSON.parse(savedCart));
+    }
   }
 }

@@ -2,6 +2,7 @@ import {Component, inject, OnInit, Signal} from '@angular/core';
 import {ProductCardComponent} from '../product-card/product-card.component';
 import {ProductService} from '../services/product.service';
 import {Product} from '../models/Product';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-webshop-product-list',
@@ -13,6 +14,7 @@ import {Product} from '../models/Product';
 })
 export class WebshopProductListComponent implements OnInit {
   private productService = inject(ProductService);
+  private cartService = inject(CartService);
   public products!: Signal<Product[]>;
 
   ngOnInit(): void {
@@ -20,6 +22,7 @@ export class WebshopProductListComponent implements OnInit {
   }
 
   onProductAdded(product: Product) {
+    this.cartService.addToCart(product);
     console.log("Added to cart:", product);
   }
 }

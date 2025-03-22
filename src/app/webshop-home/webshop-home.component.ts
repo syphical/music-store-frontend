@@ -5,10 +5,7 @@ import {WebshopProductListComponent} from '../webshop-product-list/webshop-produ
 
 @Component({
   selector: 'app-webshop-home',
-  imports: [
-    WebshopHeaderComponent,
-    WebshopProductListComponent,
-  ],
+  imports: [WebshopProductListComponent],
   templateUrl: './webshop-home.component.html',
   styleUrl: './webshop-home.component.scss'
 })

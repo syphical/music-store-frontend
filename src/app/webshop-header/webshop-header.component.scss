@@ -1,79 +1,135 @@
 @use "../../variables" as *;
 
 .header-container {
-  height: 4.2rem;
+  height: 5.25rem;
   width: 100%;
+  background-color: $secondary;
+  display: flex;
+  justify-content: center;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  margin-left: 6rem;
+  letter-spacing: 2px;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: $secondary;
-  border-bottom: 1px solid $primary;
 
-  .nav-brand {
-    padding-top: 0.2rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-align: left;
-    margin-left: 10rem;
-    letter-spacing: 3.5px;
-
-    li a {
-      font-weight: 800;
-      font-size: 1.6rem;
-      padding: 12px 16px;
-    }
+  .material-symbols-outlined {
+    font-size: 2.3rem;
+    color: $primary;
+    padding-right: 6px;
   }
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  a {
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: $primary;
+    text-decoration: none;
+    display: block;
 
-    li {
-
-      a {
-        display: block;
-        color: $primary;
-        text-decoration: none;
-        padding: 14px 16px;
-        font-weight: 600;
-
-        :hover {
-          color: darken($primary, 10%);
-          cursor: pointer;
-        }
-      }
+    &:hover {
+      color: darken($primary-dark, 10%);
+      cursor: pointer;
     }
   }
 }
 
 .nav-links {
-  padding-top: 0.4rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  text-align: right;
-  margin-right: 10rem;
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  margin-right: 6rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      color: darken($primary-dark, 10%);
+      cursor: pointer;
+    }
+  }
 }
 
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    color: #757575;
+    font-size: 20px;
+    z-index: 1;
+  }
+}
 .searchbar {
   height: 2.4rem;
-  width: 30rem;
-  border-radius: 0.25rem;
+  width: 34rem;
+  border-radius: 0.1rem;
   border-style: none;
-  background-color: #ededed;
+  background-color: white;
   padding: 0 1rem;
   outline: none;
+  padding-left: 35px;
 
-  .searchbar:focus {
+  &:focus {
     border-style: solid;
     border-width: 2px;
-    border-color: $primary;
+    border-color: $secondary;
+  }
+}
+
+.sub-header-container {
+  height: 2.5rem;
+  width: 100%;
+  background-color: $primary;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2rem;
+
+  a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($primary-dark, 10%);
+      cursor: pointer;
+    }
+  }
+
+  .left-nav-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 9rem;
+  }
+
+  .right-nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 8.3rem;
+
+    a {
+      padding: 0.5rem;
+    }
   }
 }

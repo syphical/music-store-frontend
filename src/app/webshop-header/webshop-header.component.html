@@ -1,16 +1,32 @@
 <div class="header-container">
-  <ul>
+  <div class="header-content">
     <div class="nav-brand">
-      <li><a routerLink="/">LUTETIA</a></li>
+      <span class="material-symbols-outlined">album</span>
+      <a routerLink="/">Melodia Records</a>
     </div>
+
     <div class="nav-links">
-      <input class="searchbar" type="search" placeholder="Zoeken..">
-        <li><a class="account-icon">
-          <span class="material-icons">person</span>
-        </a></li>
-      <li><a class="cart-icon" routerLink="/cart">
+      <div class="search-container">
+        <span class="material-icons search-icon">search</span>
+        <input class="searchbar" type="search" placeholder="Zoeken..">
+      </div>
+      <a class="account-icon">
+        <span class="material-icons">person</span>
+      </a>
+      <a class="cart-icon" routerLink="/cart">
         <span class="material-icons">shopping_cart</span>
-      </a></li>
+      </a>
     </div>
-  </ul>
+  </div>
+</div>
+
+<div class="sub-header-container">
+  <div class="left-nav-links">
+    <a href="/">All Products</a>
+  </div>
+  <div class="right-nav-links">
+    <a href="/">CDs</a>
+    <a href="/">Albums</a>
+    <a href="/">Vinyl</a>
+  </div>
 </div>

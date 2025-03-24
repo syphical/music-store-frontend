@@ -27,4 +27,8 @@ export class ProductService {
   public getProducts() {
     return this.products.asReadonly()
   }
+
+  public getProductById(id: string) {
+    return this.http.get<Product>(this.apiUrl + "/" + id);
+  }
 }

@@ -13,11 +13,19 @@ import {LoginService} from '../services/login.service';
 })
 export class LoginComponent {
 
-  loginEmail = "";
-
   protected loginForm = new FormGroup({
-    "email": new FormControl("", [Validators.required, Validators.email]),
-    "password": new FormControl("", [Validators.required, Validators.minLength(8)]),
+    "email": new FormControl("",
+      [Validators.required, Validators.email]),
+    "password": new FormControl("",
+      [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/[A-Z]/),
+        Validators.pattern(/[a-z]/),
+        Validators.pattern(/\d/),
+        Validators.pattern(/[@$!%*?&]/)
+      ]
+    ),
   })
 
   get email() {
@@ -34,8 +42,8 @@ export class LoginComponent {
   protected login(): void {
 
     const loginData = {
-      email: this.email?.value || "",
-      password: this.password?.value || ""
+      email: this.loginForm.get('email')?.value || "",
+      password: this.loginForm.get('password')?.value || "",
     };
 
     if (this.loginForm.invalid) {

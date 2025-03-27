@@ -1,0 +1,88 @@
+@use "../../variables" as *;
+
+.bottom-bar {
+  background-color: $secondary;
+  height: 2.5vw;
+  overflow: hidden;
+
+   .scrolling-text {
+     animation: scrolling-text 300s linear infinite;
+     animation-play-state: running;
+     display: inline-flex;
+     margin: .35em 0;
+     white-space: nowrap;
+
+     span {
+       margin-right: 20px;
+       color: $primary;
+       font-weight: bold;
+       letter-spacing: 1px;
+       font-size: 1.15em;
+     }
+   }
+}
+
+@keyframes scrolling-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 30vw;
+  width: 100%;
+
+  .left-half-container {
+    width: 40vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: center;
+    padding-left: 4vw;
+
+    h3 {
+      font-weight: 200;
+      letter-spacing: 1.5px;
+      margin-bottom: -0.75rem;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      margin-top: 15px;
+    }
+
+    button {
+      outline: 0;
+      cursor: pointer;
+      text-align: center;
+      border: 0;
+      padding: 7px 16px;
+      min-height: 42px;
+      min-width: 130px;
+      color: white;
+      background: $primary;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+      margin-top: 10px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .right-half-container {
+    width: 60vw;
+    overflow: hidden;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+}

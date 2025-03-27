@@ -16,7 +16,7 @@ export class ProductCardComponent {
   @Input({required: true}) public product!: Product;
   @Output() productAdded = new EventEmitter<Product>();
 
-  addToCart() {
+  protected addToCart(): void {
     this.productAdded.emit(this.product);
   }
 }

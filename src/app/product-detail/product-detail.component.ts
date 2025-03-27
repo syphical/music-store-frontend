@@ -16,15 +16,15 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent implements OnInit {
-  product?: Product;
-  quantity: number = 1;
-  quantityOptions = [1, 2, 3, 4, 5];
+  protected product?: Product;
+  protected quantity: number = 1;
+  protected quantityOptions = [1, 2, 3, 4, 5];
 
   private route = inject(ActivatedRoute);
   private productService = inject(ProductService);
   private cartService = inject(CartService);
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -35,7 +35,7 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  addToCart() {
+  protected addToCart() {
     if (this.product) {
       for (let i = 0; i < this.quantity; i++) {
         this.cartService.addToCart(this.product);

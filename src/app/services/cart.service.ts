@@ -17,11 +17,11 @@ export class CartService {
     this.loadCartFromLocalStorage();
   }
 
-  getCartItems() {
+  public getCartItems() {
     return this.cartItems;
   }
 
-  addToCart(product: Product) {
+  public addToCart(product: Product): void {
     const currentItems = this.cartItems();
     const existingItem = currentItems.findIndex(item => item.product.id === product.id);
 
@@ -39,22 +39,18 @@ export class CartService {
     this.saveCartToLocalStorage();
   }
 
-  getCartItemCount () {
-    return this.cartItems().reduce((count, item) => count + item.quantity, 0);
-  }
-
-  removeFromCart(productId: number) {
+  public removeFromCart(productId: number): void {
     const currentItems = this.cartItems();
     const updatedItems = currentItems.filter(item => item.product.id !== productId);
     this.cartItems.set(updatedItems);
     this.saveCartToLocalStorage();
   }
 
-  private saveCartToLocalStorage() {
+  private saveCartToLocalStorage(): void {
     localStorage.setItem("cartItems", JSON.stringify(this.cartItems()));
   }
 
-  private loadCartFromLocalStorage() {
+  private loadCartFromLocalStorage(): void {
     const savedCart = localStorage.getItem("cartItems");
     if (savedCart) {
       this.cartItems.set(JSON.parse(savedCart));

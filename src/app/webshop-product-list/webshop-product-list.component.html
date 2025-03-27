@@ -1,4 +1,4 @@
-@for (product of products() ; track product.id) {
+@for (product of products().slice(0, 6) ; track product.id) {
   <app-product-card [product]="product" (productAdded)="onProductAdded($event)"/>
 }
 

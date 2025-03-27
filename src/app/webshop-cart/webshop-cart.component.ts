@@ -17,7 +17,7 @@ export class WebshopCartComponent {
     return this.cartService.getCartItems();
   }
 
-  removeItem(productId: number) {
+  removeItem(productId: number): void {
     this.cartService.removeFromCart(productId);
   }
 }

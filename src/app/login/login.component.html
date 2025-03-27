@@ -1,13 +1,47 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <p>
-    <label>Email:</label>
-    <input type="email" formControlName="email">
-  </p>
+<div class="title-container">
+  <h1>Hallo!</h1>
+</div>
 
-  <div>
-    <label>Wachtwoord:</label>
-    <input type="password" formControlName="password">
+<div class="flex-container">
+
+
+
+  <div class="register-container">
+    <h2>Registreren</h2>
+    <p>Kom je hier voor het eerst?<br>Bekijk hier de voordelen van het aanmaken van een account.</p>
+    <ul>
+      <li>
+        <span class="material-symbols-outlined">check</span>
+        10% korting op je eerst volgende bestelling
+      </li>
+      <li>
+        <span class="material-symbols-outlined">check</span>
+        Al je gegevens bij elkaar op een plek
+      </li>
+      <li>
+        <span class="material-symbols-outlined">check</span>
+        Bekijk je vorige bestellingen
+      </li>
+    </ul>
+
+    <button type="button" routerLink="/register">Registreren</button>
   </div>
 
-  <button type="submit">Login</button>
-</form>
+  <div class="login-container">
+    <h2>Welkom terug!</h2>
+    <p>Gebruik je inloggegevens om in te loggen.</p>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <p class="input-field">
+        <label>Email<br></label>
+        <input type="email" formControlName="email" placeholder="Email">
+      </p>
+
+      <p class="input-field">
+        <label>Wachtwoord<br></label>
+        <input type="password" formControlName="password" placeholder="Wachtwoord">
+      </p>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>

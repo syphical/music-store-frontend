@@ -1,0 +1,71 @@
+<div class="login-container">
+  <p>Login om je gegevens op te halen</p>
+  <button type="button" routerLink="/login">Inloggen</button>
+</div>
+
+<div class="flex-container">
+
+  <div class="register-container">
+    <h1>Registreren</h1>
+    <h3>Vul informatie in om je te kunnen registreren</h3>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <p class="input-field">
+        <label>Email<br></label>
+        <input class="max-input" type="email" formControlName="email" placeholder="Jouw emailadres">
+      </p>
+
+      <p class="input-field">
+        <label>Wachtwoord<br></label>
+        <input class="max-input" type="password" formControlName="password" placeholder="Wachtwoord">
+      </p>
+
+      <div class="two_fields">
+        <p class="input-field">
+          <label>Voornaam<br></label>
+          <input class="small-input" type="text" formControlName="firstname" placeholder="Voornaam">
+        </p>
+
+        <p class="input-field">
+          <label>Achternaam<br></label>
+          <input class="small-input" type="text" formControlName="lastname" placeholder="Achternaam">
+        </p>
+      </div>
+
+      <p class="input-field">
+        <label>Telefoonnummer<br></label>
+        <input class="max-input" type="text" formControlName="phonenumber" placeholder="Voorbeeld: 0681924732">
+      </p>
+
+
+      <p class="input-field">
+        <label>Straat<br></label>
+        <input class="max-input" type="text" formControlName="streetaddress" placeholder="Straat">
+      </p>
+
+      <div class="two_fields">
+        <p class="input-field">
+        <label>Huisnummer<br></label>
+        <input class="small-input" type="text" formControlName="housenumber" placeholder="Huisnummer">
+        </p>
+
+        <p class="input-field">
+          <label>Postcode<br></label>
+          <input class="small-input" type="text" formControlName="zipcode" placeholder="Postcode">
+        </p>
+      </div>
+
+      <p class="input-field">
+        <label>Stad<br></label>
+        <input class="max-input" type="text" formControlName="city" placeholder="Stad">
+      </p>
+
+      <p class="input-field">
+        <label>Provincie<br></label>
+        <input class="max-input" type="text" formControlName="province" placeholder="Provincie">
+      </p>
+
+      <button type="submit">Maak account</button>
+    </form>
+  </div>
+</div>

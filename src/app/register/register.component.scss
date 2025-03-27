@@ -1,0 +1,112 @@
+@use "../../variables" as *;
+
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1.5rem;
+  border: solid 1px #f1f1f1;
+  width: 40rem;
+  margin: 3.5rem auto auto;
+  background-color: #f9f9f9;
+
+  button {
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+    padding: 7px 16px;
+    min-height: 36px;
+    min-width: 36px;
+    color: $primary;
+    border: 1px solid $primary;
+    background-color: #f9f9f9;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    margin-left: auto;
+  }
+}
+
+input {
+  width: 27rem;
+  height: 2.3rem;
+  border: 1px solid $primary-dark;
+  background-color: #fff;
+  border-radius: 2px;
+  line-height: 27px;
+  font-size: 16px;
+  padding-left: 12px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  margin: 2rem auto auto;
+
+  .register-container {
+    padding: 1.5rem;
+    border: solid 1px #f3f3f3;
+
+    button {
+      outline: 0;
+      cursor: pointer;
+      text-align: center;
+      border: 0;
+      padding: 7px 16px;
+      min-height: 36px;
+      min-width: 36px;
+      width: 15rem;
+      color: white;
+      background: $primary;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-weight: 900;
+      color: $primary;
+      margin: 0;
+    }
+
+    h3 {
+      font-weight: normal;
+      font-size: 1.1rem;
+      margin: 0;
+      padding-bottom: 16px;
+    }
+
+    .two_fields {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .input-field {
+      padding-bottom: 1rem;
+      line-height: 30px;
+      margin-top: 0;
+
+      label {
+        font-size: 0.80rem;
+        font-weight: bold;
+      }
+
+      .max-input {
+        width: 36.75rem;
+      }
+
+      .small-input {
+        width: 17.7rem;
+      }
+    }
+  }
+}

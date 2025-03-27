@@ -20,15 +20,15 @@ export class LoginService {
     }
   }
 
-  public isLoggedIn() {
+  public isLoggedIn(): boolean {
     return this.loggedIn;
   }
 
-  public getToken() {
+  public getToken(): string | null {
     return this.token;
   }
 
-  public login(login: Login) {
+  public login(login: Login)  {
     const subscription = this.httpClient.post<ResponseLoginData>(
       "http://localhost:8080/api/auth/login", login
     ).pipe(
@@ -43,11 +43,11 @@ export class LoginService {
     return subscription;
   }
 
-  private saveTokenInLocalStorage(token: string) {
+  private saveTokenInLocalStorage(token: string): void {
     localStorage.setItem('authToken', token);
   }
 
-  private loadTokenFromLocalStorage() {
+  private loadTokenFromLocalStorage(): void {
     this.token = localStorage.getItem('authToken');
   }
 }

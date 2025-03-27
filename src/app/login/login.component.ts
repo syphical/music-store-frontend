@@ -1,17 +1,21 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-login',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
+  private loginService = inject(LoginService);
+  private router = inject(Router);
 
   protected loginForm = new FormGroup({
     "email": new FormControl("",
@@ -36,9 +40,6 @@ export class LoginComponent {
     return this.loginForm.get('password')
   }
 
-  private loginService= inject(LoginService);
-  private router = inject(Router);
-
   protected login(): void {
 
     const loginData = {
@@ -47,6 +48,7 @@ export class LoginComponent {
     };
 
     if (this.loginForm.invalid) {
+      console.log("Invalid login");
       return;
     }
 

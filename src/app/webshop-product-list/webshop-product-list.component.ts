@@ -21,7 +21,7 @@ export class WebshopProductListComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
-  onProductAdded(product: Product) {
+  onProductAdded(product: Product): void {
     this.cartService.addToCart(product);
     console.log("Added to cart:", product);
   }

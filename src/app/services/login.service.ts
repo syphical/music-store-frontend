@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Login} from '../models/Login';
 import {ResponseLoginData} from '../models/ResponseLoginData';
 import {tap} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class LoginService {
 
   public login(login: Login)  {
     const subscription = this.httpClient.post<ResponseLoginData>(
-      "http://localhost:8080/api/auth/login", login
+      environment.apiUrl + "/auth/login", login
     ).pipe(
       tap(responseData => {
         if (responseData.token) {

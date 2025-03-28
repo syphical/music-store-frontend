@@ -2,12 +2,13 @@ import {Injectable, signal} from '@angular/core';
 import {Product} from '../models/Product';
 import {HttpClient} from '@angular/common/http';
 import {catchError, Observable, tap} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = "http://localhost:8080/api/products";
+  private apiUrl = environment.apiUrl + "/products";
   private products = signal<Product[]>([]);
 
   constructor(private http: HttpClient) {

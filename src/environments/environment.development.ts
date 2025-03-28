@@ -1,4 +1,3 @@
 export const environment = {
-  apiUrl: "http://localhost:8080/api/products",
-  name: "dev"
+  apiUrl: "http://localhost:8080/api"
 };

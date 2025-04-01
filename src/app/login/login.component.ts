@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
-import {LoginService} from '../services/login.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ import {LoginService} from '../services/login.service';
 })
 export class LoginComponent {
 
-  private loginService = inject(LoginService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   protected loginForm = new FormGroup({
@@ -52,7 +52,7 @@ export class LoginComponent {
       return;
     }
 
-    this.loginService.login(loginData).subscribe({
+    this.authService.login(loginData).subscribe({
       next: (responseData) => {
         this.router.navigate([""])
       },

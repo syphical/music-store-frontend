@@ -1,10 +1,10 @@
 import {HttpHandlerFn, HttpRequest} from '@angular/common/http';
 import {inject} from '@angular/core';
-import {LoginService} from '../services/login.service';
+import {AuthService} from '../services/auth.service';
 
 export function authInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn) {
-  const loginService = inject(LoginService);
-  const authToken = loginService.getToken();
+  const authService = inject(AuthService);
+  const authToken = authService.getToken();
 
   if (authToken != null) {
     const newRequest = req.clone({

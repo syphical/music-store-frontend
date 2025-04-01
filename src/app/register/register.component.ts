@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {RegisterService} from '../services/register.service';
 import {Router, RouterLink} from '@angular/router';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +14,7 @@ import {Router, RouterLink} from '@angular/router';
 })
 export class RegisterComponent {
 
-  private registerService = inject(RegisterService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   protected registerForm = new FormGroup({
@@ -99,7 +99,7 @@ export class RegisterComponent {
       return;
     }
 
-    this.registerService.register(registerData).subscribe({
+    this.authService.register(registerData).subscribe({
       next: (response) => {
         console.log("Registration successful", response);
         this.router.navigate(["/"]);

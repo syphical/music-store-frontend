@@ -22,11 +22,11 @@
 
 <div class="sub-header-container">
   <div class="left-nav-links">
-    <a href="/">All Products</a>
+    <a routerLink="/products">Alle producten</a>
   </div>
   <div class="right-nav-links">
-    <a href="/">CDs</a>
-    <a href="/">Albums</a>
-    <a href="/">Vinyl</a>
+    <a routerLink="/products" [queryParams]="{category: 'CD'}">CDs</a>
+    <a routerLink="/products" [queryParams]="{category: 'Album'}">Albums</a>
+    <a routerLink="/products" [queryParams]="{category: 'Vinyl'}">Vinyl</a>
   </div>
 </div>

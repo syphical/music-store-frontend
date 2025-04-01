@@ -1,8 +1,9 @@
-import {Component, inject, OnInit, Signal} from '@angular/core';
+import {Component, inject, Input, OnInit, signal, Signal} from '@angular/core';
 import {ProductCardComponent} from '../product-card/product-card.component';
 import {ProductService} from '../services/product.service';
 import {Product} from '../models/Product';
 import { CartService } from '../services/cart.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-webshop-product-list',
@@ -15,10 +16,27 @@ import { CartService } from '../services/cart.service';
 export class WebshopProductListComponent implements OnInit {
   private productService = inject(ProductService);
   private cartService = inject(CartService);
-  public products!: Signal<Product[]>;
+  private route = inject(ActivatedRoute);
+
+  public categoryName: string = "";
+  @Input() products: Signal<Product[]> = signal([]);
+  @Input() isFeatured: boolean = false;
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    if (!this.isFeatured) {
+      this.route.queryParams.subscribe(params => {
+        this.categoryName = params["category"] || "Alle producten";
+        this.loadProductsByCategory();
+      });
+    }
+  }
+
+  private loadProductsByCategory(): void {
+    if (this.categoryName.toLowerCase() === "alle producten") {
+      this.products = this.productService.getProducts();
+    } else {
+      this.products = this.productService.getProductsByCategory(this.categoryName);
+    }
   }
 
   onProductAdded(product: Product): void {

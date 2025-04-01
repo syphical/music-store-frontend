@@ -1,4 +1,13 @@
-@for (product of products().slice(0, 6) ; track product.id) {
-  <app-product-card [product]="product" (productAdded)="onProductAdded($event)"/>
+@if (!isFeatured) {
+  <div class="category-title">
+    <h2>{{ categoryName }}</h2>
+  </div>
 }
 
+@if (products().length === 0) {
+  <p class="no-products">Er zijn geen producten in deze categorie.</p>
+} @else {
+  @for (product of products() ; track product.id) {
+    <app-product-card [product]="product" (productAdded)="onProductAdded($event)"/>
+  }
+}

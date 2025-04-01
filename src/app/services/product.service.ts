@@ -32,4 +32,20 @@ export class ProductService {
   public getProductById(id: string) {
     return this.http.get<Product>(this.apiUrl + "/" + id);
   }
+
+  public getProductsByCategory(categoryName: string) {
+    const allProducts = this.products();
+    if (!categoryName || categoryName.toLowerCase() === "all products") {
+      return this.products.asReadonly();
+    }
+
+    return signal(allProducts.filter(product =>
+    product.category.name.toLowerCase() === categoryName.toLowerCase()
+    )).asReadonly();
+  }
+
+  public getFeaturedProducts(count: number = 6) {
+    const allProducts = this.products();
+    return signal(allProducts.slice(0, count)).asReadonly();
+  }
 }

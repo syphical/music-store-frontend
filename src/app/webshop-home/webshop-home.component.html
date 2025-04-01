@@ -1,7 +1,7 @@
 <app-aotw/>
 <div class="featured-section">
-  <h1 class="featured-title">Featured items</h1>
+  <h1 class="featured-title">Aanbevolen producten</h1>
 </div>
 <div class="product-lijst">
-  <app-webshop-product-list/>
+  <app-webshop-product-list [products]="featuredProducts" [isFeatured]="true"/>
 </div>

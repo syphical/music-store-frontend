@@ -4,6 +4,7 @@ import {WebshopHomeComponent} from './webshop-home/webshop-home.component';
 import { WebshopCartComponent } from './webshop-cart/webshop-cart.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {RegisterComponent} from './register/register.component';
+import {WebshopProductListComponent} from './webshop-product-list/webshop-product-list.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: "products/:id",
     component: ProductDetailComponent,
+  },
+  {
+    path: "products",
+    component: WebshopProductListComponent,
   }
 ];

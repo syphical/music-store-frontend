@@ -2,12 +2,14 @@ import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../services/auth.service';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-register',
   imports: [
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -16,6 +18,9 @@ export class RegisterComponent {
 
   private authService = inject(AuthService);
   private router = inject(Router);
+  protected formState: "idle" | "submitting" | "success" | "error" = "idle";
+  protected errorMessage = "";
+  public formSubmitted = false;
 
   protected registerForm = new FormGroup({
     "email": new FormControl("", [Validators.required, Validators.email]),
@@ -39,47 +44,60 @@ export class RegisterComponent {
     "province": new FormControl("", [Validators.required]),
   })
 
-  get email() {
+  public get email() {
     return this.registerForm.get('email')
   }
 
-  get password() {
+  public get password() {
     return this.registerForm.get('password')
   }
 
-  get firstname() {
+  public get firstname() {
     return this.registerForm.get('firstname')
   }
 
-  get lastname() {
+  public get lastname() {
     return this.registerForm.get('lastname')
   }
 
-  get phonenumber() {
+  public get phonenumber() {
     return this.registerForm.get('phonenumber')
   }
 
-  get streetaddress() {
+  public get streetaddress() {
     return this.registerForm.get('streetaddress')
   }
 
-  get housenumber() {
+  public get housenumber() {
     return this.registerForm.get('housenumber')
   }
 
-  get zipcode() {
+  public get zipcode() {
     return this.registerForm.get('zipcode')
   }
 
-  get city() {
+  public get city() {
     return this.registerForm.get('city')
   }
 
-  get province() {
+  public get province() {
     return this.registerForm.get('province')
   }
 
-  protected register(): void{
+  protected register(): void {
+    this.formSubmitted = true;
+
+    Object.keys(this.registerForm.controls).forEach(key => {
+      const control = this.registerForm.get(key);
+      control?.markAsTouched();
+    });
+
+    if (this.registerForm.invalid) {
+      console.log("Invalid information");
+      this.errorMessage = 'Vul alle verplichte velden correct in.';
+      this.formState = 'error';
+      return;
+    }
 
     const registerData = {
       email: this.registerForm.get('email')?.value || "",
@@ -94,19 +112,20 @@ export class RegisterComponent {
       province: this.registerForm.get('province')?.value || ""
     };
 
-    if (this.registerForm.invalid) {
-      console.log("Invalid information")
-      return;
-    }
+    this.formState = 'submitting';
+    this.errorMessage = '';
 
     this.authService.register(registerData).subscribe({
       next: (response) => {
         console.log("Registration successful", response);
+        this.formState = 'success';
         this.router.navigate(["/"]);
       },
       error: (error) => {
         console.log("Registration failed", error);
+        this.errorMessage = 'Registratie mislukt. Controleer je gegevens en probeer het opnieuw.';
+        this.formState = 'error';
       }
-    })
+    });
   }
 }

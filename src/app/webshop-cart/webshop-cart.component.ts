@@ -13,7 +13,8 @@ import {CurrencyPipe} from '@angular/common';
 export class WebshopCartComponent {
   private cartService = inject(CartService);
   protected checkoutSuccess = false;
-  protected checkoutError = '';
+  protected checkoutError: string | null = null;
+  protected isLoading = false;
 
   get cartItems() {
     return this.cartService.getCartItems();
@@ -28,15 +29,19 @@ export class WebshopCartComponent {
   }
 
   checkout(): void {
-    if (this.cartItems().length === 0) {
-      this.checkoutError = "Je winkelwagen is leeg";
-      return;
-    }
+    this.isLoading = true;
+    this.checkoutError = null;
 
-    console.log("Checkout", this.cartItems());
-    console.log("Cost", this.totalCost);
-
-    this.checkoutSuccess = true;
-    this.cartService.clearCart();
+    this.cartService.checkout().subscribe({
+      next: (response) => {
+        this.checkoutSuccess = true;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.checkoutError = 'Er is iets misgegaan bij het afrekenen. Probeer het later opnieuw.';
+        this.isLoading = false;
+        console.error('Checkout error:', error);
+      }
+    });
   }
 }

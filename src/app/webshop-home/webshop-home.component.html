@@ -3,5 +3,16 @@
   <h1 class="featured-title">Aanbevolen producten</h1>
 </div>
 <div class="product-lijst">
-  <app-webshop-product-list [products]="featuredProducts" [isFeatured]="true"/>
+  @if (isLoading) {
+    <div class="loading-spinner">
+      <p>Producten worden geladen...</p>
+    </div>
+  } @else if (error) {
+    <div class="error-message">
+      <p>{{ error }}</p>
+      <button (click)="loadFeaturedProducts()">Probeer opnieuw</button>
+    </div>
+  } @else {
+    <app-webshop-product-list [products]="featuredProducts" [isFeatured]="true"/>
+  }
 </div>

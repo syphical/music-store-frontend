@@ -1,5 +1,6 @@
 import { Injectable, signal } from "@angular/core";
 import { Product } from "../models/Product";
+import {delay, Observable, of} from 'rxjs';
 
 export interface CartItem {
   product: Product;
@@ -66,5 +67,11 @@ export class CartService {
   public clearCart(): void {
     this.cartItems.set([]);
     this.saveCartToLocalStorage();
+  }
+
+  public checkout(): Observable<any> {
+    return of({ success: true, orderId: Math.floor(Math.random() * 1000) }).pipe(
+      delay(1000)
+    );
   }
 }

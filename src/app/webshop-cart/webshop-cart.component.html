@@ -38,11 +38,8 @@
         </div>
       }
 
-      <button
-        class="checkout-button"
-        (click)="checkout()"
-        [disabled]="cartItems().length === 0">
-        Afrekenen
+      <button class="checkout-button" (click)="checkout()" [disabled]="cartItems().length === 0 || isLoading">
+        {{ isLoading ? 'Bezig met afrekenen...' : 'Afrekenen' }}
       </button>
     </div>
   }

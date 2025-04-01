@@ -13,15 +13,27 @@ import {Product} from '../models/Product';
 export class WebshopHomeComponent implements OnInit {
   private productService = inject(ProductService);
   public featuredProducts = signal<Product[]>([]);
+  protected isLoading = false;
+  error: string | null = null;
 
   ngOnInit(): void {
     this.loadFeaturedProducts();
   }
 
-  private loadFeaturedProducts(): void {
-    this.productService.fetchProducts().subscribe(products => {
-      const featured = products.slice(0, 6);
-      this.featuredProducts.set(featured);
+  protected loadFeaturedProducts() {
+    this.isLoading = true;
+    this.error = null;
+
+    this.productService.fetchProducts().subscribe({
+      next: (products) => {
+        this.featuredProducts.set(products.slice(0, 6));
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.error = "Kon de aanbevolen producten niet laden. Probeer het later opnieuw.";
+        this.isLoading = false;
+        console.error("Error loading featured products:", err);
+      }
     });
   }
 }

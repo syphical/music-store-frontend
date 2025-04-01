@@ -56,4 +56,15 @@ export class CartService {
       this.cartItems.set(JSON.parse(savedCart));
     }
   }
+
+  public calculateTotal(): number {
+    return this.cartItems().reduce((total, item) => {
+      return total + (item.product.price * item.quantity);
+    }, 0);
+  }
+
+  public clearCart(): void {
+    this.cartItems.set([]);
+    this.saveCartToLocalStorage();
+  }
 }

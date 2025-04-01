@@ -12,12 +12,31 @@ import {CurrencyPipe} from '@angular/common';
 })
 export class WebshopCartComponent {
   private cartService = inject(CartService);
+  protected checkoutSuccess = false;
+  protected checkoutError = '';
 
   get cartItems() {
     return this.cartService.getCartItems();
   }
 
+  get totalCost() {
+    return this.cartService.calculateTotal();
+  }
+
   removeItem(productId: number): void {
     this.cartService.removeFromCart(productId);
+  }
+
+  checkout(): void {
+    if (this.cartItems().length === 0) {
+      this.checkoutError = "Je winkelwagen is leeg";
+      return;
+    }
+
+    console.log("Checkout", this.cartItems());
+    console.log("Cost", this.totalCost);
+
+    this.checkoutSuccess = true;
+    this.cartService.clearCart();
   }
 }

@@ -1,6 +1,4 @@
-import {Component, inject, OnInit, Signal} from '@angular/core';
-import {WebshopHeaderComponent} from '../webshop-header/webshop-header.component';
-import {ProductCardComponent} from '../product-card/product-card.component';
+import {Component, inject, OnInit, signal} from '@angular/core';
 import {WebshopProductListComponent} from '../webshop-product-list/webshop-product-list.component';
 import {AotwComponent} from '../aotw/aotw.component';
 import {ProductService} from '../services/product.service';
@@ -14,9 +12,16 @@ import {Product} from '../models/Product';
 })
 export class WebshopHomeComponent implements OnInit {
   private productService = inject(ProductService);
-  public featuredProducts!: Signal<Product[]>;
+  public featuredProducts = signal<Product[]>([]);
 
   ngOnInit(): void {
-    this.featuredProducts = this.productService.getFeaturedProducts(6);
+    this.loadFeaturedProducts();
+  }
+
+  private loadFeaturedProducts(): void {
+    this.productService.fetchProducts().subscribe(products => {
+      const featured = products.slice(0, 6);
+      this.featuredProducts.set(featured);
+    });
   }
 }

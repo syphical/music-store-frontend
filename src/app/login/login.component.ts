@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
 import {LoginService} from '../services/login.service';
 
@@ -24,10 +24,10 @@ export class LoginComponent {
       [
         Validators.required,
         Validators.minLength(8),
-        Validators.pattern(/[A-Z]/),
-        Validators.pattern(/[a-z]/),
-        Validators.pattern(/\d/),
-        Validators.pattern(/[@$!%*?&]/)
+        Validators.pattern(/[A-Z]/), // 1 uppercase minimum
+        Validators.pattern(/[a-z]/), // 1 lowercase minimum
+        Validators.pattern(/\d/), // 1 digit minimum
+        Validators.pattern(/[@$!%*?&]/) // 1 special char minimum
       ]
     ),
   })

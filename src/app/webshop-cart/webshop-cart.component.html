@@ -1,8 +1,12 @@
 <div class="cart-container">
   <h1 class="cart-title">Winkelwagen</h1>
 
-  @if (cartItems().length === 0) {
+  @if (cartItems().length === 0 && !checkoutSuccess) {
     <p class="empty-cart">Je winkelwagen is leeg!</p>
+  } @else if (checkoutSuccess) {
+    <div class="success-message">
+      <p>Je bestelling is geplaatst!</p>
+    </div>
   } @else {
     <div class="cart-items">
       @for (item of cartItems() ; track item.product.id) {
@@ -17,6 +21,29 @@
           </div>
         </div>
       }
+    </div>
+
+    <div class="checkout-section">
+      <div class="order-summary">
+        <h2>Bestelling overzicht</h2>
+        <div class="total-row">
+          <span>Totaal:</span>
+          <span class="total-amount">{{ totalCost | currency:"EUR":"symbol":"1.2-2" }}</span>
+        </div>
+      </div>
+
+      @if (checkoutError) {
+        <div class="error-message">
+          <p>{{ checkoutError }}</p>
+        </div>
+      }
+
+      <button
+        class="checkout-button"
+        (click)="checkout()"
+        [disabled]="cartItems().length === 0">
+        Afrekenen
+      </button>
     </div>
   }
 </div>

@@ -1,7 +1,7 @@
 import {Injectable, signal} from '@angular/core';
 import {Product} from '../models/Product';
 import {HttpClient} from '@angular/common/http';
-import {catchError, Observable, tap} from 'rxjs';
+import {catchError, Observable, of, tap} from 'rxjs';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -21,8 +21,13 @@ export class ProductService {
     ).subscribe();
   }
 
-  private fetchProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+  public fetchProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl).pipe(
+      catchError(error => {
+        console.error('Error fetching products:', error);
+        return of([]);
+      })
+    );
   }
 
   public getProducts() {

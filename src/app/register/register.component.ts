@@ -23,10 +23,10 @@ export class RegisterComponent {
       [
         Validators.required,
         Validators.minLength(8),
-        Validators.pattern(/[A-Z]/),
-        Validators.pattern(/[a-z]/),
-        Validators.pattern(/\d/),
-        Validators.pattern(/[@$!%*?&]/)
+        Validators.pattern(/[A-Z]/), // 1 uppercase minimum
+        Validators.pattern(/[a-z]/), // 1 lowercase minimum
+        Validators.pattern(/\d/), // 1 digit minimum
+        Validators.pattern(/[@$!%*?&]/) // 1 special char minimum
       ]
     ),
     "firstname": new FormControl("", [Validators.required]),

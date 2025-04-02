@@ -1,9 +1,9 @@
 <div class="product-container">
-  <img [src]="product.imagePath || '../../assets/UbermenschPINK.webp'" alt="Product image">
+  <img [src]="getImagePath(product.id) || '../../assets/UbermenschPINK.webp'" alt="Foto van {{ product.name }} {{ product.category.name }}">
   <div class="product-informatie">
-    <p class="product-artiest">{{ product.artist.name }}</p>
-    <p class="product-naam">{{ product.name }}</p>
-    <p class="product-prijs">{{ product.price | currency:"EUR":"symbol":"1.2-2" }}</p>
+    <h3 class="product-artiest">{{ product.artist.name }}</h3>
+    <h2 class="product-naam">{{ product.name }}</h2>
+    <h3 class="product-prijs">{{ product.price | currency:"EUR":"symbol":"1.2-2" }}</h3>
     <button class="koopbutton" (click)="addToCart()">In winkelwagen</button>
     <a class="detailslink" routerLink="/products/{{ product.id }}">
     <button class="detailsbutton">Meer info</button>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CurrencyPipe} from '@angular/common';
 import {Product} from '../models/Product';
 import {RouterLink} from '@angular/router';
@@ -18,5 +18,9 @@ export class ProductCardComponent {
 
   protected addToCart(): void {
     this.productAdded.emit(this.product);
+  }
+
+  protected getImagePath(productId: any): string {
+    return "../../assets/" + productId + ".webp";
   }
 }

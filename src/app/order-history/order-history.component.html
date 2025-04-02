@@ -1,0 +1,27 @@
+<h1>Profiel</h1>
+
+<div class="loguit-container">
+<h2>Klik hier om uit te loggen</h2>
+<button type="button" (click)="authService.logout()">Uitloggen</button>
+</div>
+
+
+<h2 class="bestellingen-header">Bestellingen</h2>
+    @if (orderHistory()) {
+      @for (order of orderHistory() ; track order) {
+        <div class="order-container">
+        <div class="first-row">
+        <h3 class="order-id">Bestelling #{{ order.id }}</h3>
+        <h3 class="order-date">{{ order.orderDate }}</h3>
+        </div>
+        <h3>Totale prijs: {{ order.totalAmount | currency:"EUR":"symbol":"1.2-2"}}</h3>
+        @for (product of order.orderItems ; track product.productId) {
+          <h2>{{ product.productName }}</h2>
+          <h3>{{ product.productPrice | currency:"EUR":"symbol":"1.2-2"}}</h3>
+          <h3>Aantal: {{ product.quantity }}</h3>
+        }
+        </div>
+      }
+    } @else {
+      <h3>Je hebt nog geen bestellingen.</h3>
+    }

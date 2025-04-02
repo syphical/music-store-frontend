@@ -5,6 +5,7 @@ import { Register } from '../models/Register';
 import { ResponseLoginData } from '../models/ResponseLoginData';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthService {
   private httpClient = inject(HttpClient);
   private loggedIn: boolean = false;
   private token: string | null = null;
+  private router = inject(Router);
 
   constructor() {
     this.loadTokenFromLocalStorage();
@@ -61,6 +63,7 @@ export class AuthService {
     this.loggedIn = false;
     this.token = null;
     localStorage.removeItem('authToken');
+    this.router.navigate(['/login']);
   }
 
   private saveTokenInLocalStorage(token: string): void {

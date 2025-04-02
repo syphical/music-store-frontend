@@ -7,20 +7,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class OrderDTO {
-    public Long id;
+    public double totalAmount;
+    public List<OrderItemDTO> products;
     public LocalDate orderDate;
-    public BigDecimal totalAmount;
-    public CustomUser customUser;
-    public List<OrderItemDTO> items;
 
     public OrderDTO() {
     }
 
-    public OrderDTO(Long id, LocalDate orderDate, BigDecimal totalAmount, CustomUser customUser, List<OrderItemDTO> items) {
-        this.id = id;
-        this.orderDate = orderDate;
+    public OrderDTO(double totalAmount, List<OrderItemDTO> products, LocalDate orderDate) {
         this.totalAmount = totalAmount;
-        this.customUser = customUser;
-        this.items = items;
+        this.products = products;
+        this.orderDate = orderDate;
     }
 }

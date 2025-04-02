@@ -1,5 +1,7 @@
 package com.lutetia.lutetiawebshop.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -9,7 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "customerOrder")
 public class Order {
 
     @Id
@@ -18,18 +20,20 @@ public class Order {
     private Long id;
 
     private LocalDate orderDate;
-    private BigDecimal totalAmount;
+    private double totalAmount;
 
     @ManyToOne
+    @JsonBackReference
     private CustomUser customUser;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order")
+    @JsonManagedReference
     private List<OrderItem> orderItems = new ArrayList<>();
 
     public Order() {
     }
 
-    public Order(Long id, LocalDate orderDate, BigDecimal totalAmount, CustomUser customUser, List<OrderItem> orderItems) {
+    public Order(Long id, LocalDate orderDate, double totalAmount, CustomUser customUser, List<OrderItem> orderItems) {
         this.id = id;
         this.orderDate = orderDate;
         this.totalAmount = totalAmount;
@@ -53,11 +57,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public BigDecimal getTotalAmount() {
+    public double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(BigDecimal totalAmount) {
+    public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
 

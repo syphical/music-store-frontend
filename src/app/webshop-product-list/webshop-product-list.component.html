@@ -1,11 +1,11 @@
 @if (!isFeatured) {
   <div class="category-title">
-    <h2>{{ categoryName }}</h2>
+    <h1>{{ categoryName }}</h1>
   </div>
 }
 
 @if (products().length === 0) {
-  <p class="no-products">Er zijn geen producten in deze categorie.</p>
+  <h3 class="no-products">Er zijn geen producten in deze categorie.</h3>
 } @else {
   @for (product of products() ; track product.id) {
     <app-product-card [product]="product" (productAdded)="onProductAdded($event)"/>

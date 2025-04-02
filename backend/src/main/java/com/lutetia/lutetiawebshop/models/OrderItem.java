@@ -1,5 +1,6 @@
 package com.lutetia.lutetiawebshop.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,19 +16,20 @@ public class OrderItem {
     private Long id;
 
     private String productName;
-    private BigDecimal productPrice;
+    private double productPrice;
     private int quantity;
 
     @ManyToOne
     private Product product;
 
     @ManyToOne
+    @JsonBackReference
     private Order order;
 
     public OrderItem() {
     }
 
-    public OrderItem(Long id, String productName, BigDecimal productPrice, int quantity, Product product, Order order) {
+    public OrderItem(Long id, String productName, double productPrice, int quantity, Product product, Order order) {
         this.id = id;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -36,9 +38,9 @@ public class OrderItem {
         this.order = order;
     }
 
-    public BigDecimal getTotalAmount() {
-        return productPrice.multiply(new BigDecimal(quantity));
-    }
+//    public BigDecimal getTotalAmount() {
+//        return productPrice.multiply(new BigDecimal(quantity));
+//    }
 
     public Long getId() {
         return id;
@@ -56,11 +58,11 @@ public class OrderItem {
         this.productName = productName;
     }
 
-    public BigDecimal getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(BigDecimal productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 

@@ -35,15 +35,13 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .userDetailsService(userService)
-//                .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
-                .authorizeHttpRequests((auth) -> {
-                    auth
-                                    .requestMatchers("/auth/**").permitAll();
-                                    auth.requestMatchers("/error").anonymous();
-                                    auth.requestMatchers(HttpMethod.GET, "/products").permitAll();
-                                    auth.requestMatchers(HttpMethod.GET, "/products/**").permitAll();
-                                    auth.anyRequest().authenticated();
-                        }
+                .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
+                .authorizeHttpRequests((auth) -> auth
+                                    .requestMatchers("/auth/**").permitAll()
+                                    .requestMatchers(HttpMethod.GET, "/products").permitAll()
+                                    .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
+                                    .requestMatchers("/error").anonymous()
+                                    .anyRequest().authenticated()
                 )
                 .build();
     }

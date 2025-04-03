@@ -3,7 +3,7 @@ import {ProductCardComponent} from '../product-card/product-card.component';
 import {ProductService} from '../services/product.service';
 import {Product} from '../models/Product';
 import { CartService } from '../services/cart.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-webshop-product-list',
@@ -17,6 +17,7 @@ export class WebshopProductListComponent implements OnInit {
   private productService = inject(ProductService);
   private cartService = inject(CartService);
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   public categoryName: string = "";
   @Input() products: Signal<Product[]> = signal([]);
@@ -42,5 +43,6 @@ export class WebshopProductListComponent implements OnInit {
   onProductAdded(product: Product): void {
     this.cartService.addToCart(product);
     console.log("Added to cart:", product);
+    this.router.navigate(["/cart"])
   }
 }

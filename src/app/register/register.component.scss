@@ -54,6 +54,16 @@ input {
     padding: 1.5rem;
     border: solid 1px #f3f3f3;
 
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
     button {
       outline: 0;
       cursor: pointer;

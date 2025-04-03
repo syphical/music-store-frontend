@@ -11,7 +11,7 @@
     <div class="cart-items">
       @for (item of cartItems() ; track item.product.id) {
         <div class="cart-item">
-          <img [src]="item.product.imagePath || '../../assets/UbermenschPINK.webp'" alt="Product image">
+          <img [src]="getImagePath(item.product.id) || '../../assets/UbermenschPINK.webp'" alt="Plaatje van {{ item.product.artist.name }} {{ item.product.name }}">
           <div class="item-details">
             <h3>{{ item.product.name }}</h3>
             <p>{{ item.product.artist.name }}</p>

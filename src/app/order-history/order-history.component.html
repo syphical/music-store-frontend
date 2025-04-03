@@ -7,7 +7,7 @@
 
 
 <h2 class="bestellingen-header">Bestellingen</h2>
-    @if (orderHistory()) {
+    @if (orderHistory() && orderHistory()!.length > 0) {
       @for (order of orderHistory() ; track order) {
         <div class="order-container">
         <div class="first-row">
@@ -23,5 +23,5 @@
         </div>
       }
     } @else {
-      <h3>Je hebt nog geen bestellingen.</h3>
+      <h3 class="no-orders">Je hebt nog geen bestellingen.</h3>
     }

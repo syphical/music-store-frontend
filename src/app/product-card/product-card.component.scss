@@ -13,7 +13,7 @@
 .product-container img {
   width: 350px;
   height: 350px;
-  margin: auto;
+  margin: 10px auto;
 }
 
 .product-informatie {
@@ -28,6 +28,9 @@
   font-weight: bold;
   font-size: 1.2rem;
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .product-artiest {

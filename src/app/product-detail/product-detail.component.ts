@@ -1,6 +1,6 @@
 import {Component, inject, input, OnInit} from '@angular/core';
 import {ProductService} from '../services/product.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../models/Product';
 import {CurrencyPipe} from '@angular/common';
 import {CartService} from '../services/cart.service';
@@ -23,6 +23,7 @@ export class ProductDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private productService = inject(ProductService);
   private cartService = inject(CartService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -35,12 +36,17 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+  protected getImagePath(productId: any): string {
+    return "../../assets/" + productId + ".webp";
+  }
+
   protected addToCart() {
     if (this.product) {
       for (let i = 0; i < this.quantity; i++) {
         this.cartService.addToCart(this.product);
       }
       console.log('Added to cart:', this.product);
+      this.router.navigate(["/cart"])
     }
   }
 }

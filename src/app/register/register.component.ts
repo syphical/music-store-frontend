@@ -21,6 +21,7 @@ export class RegisterComponent {
   protected formState: "idle" | "submitting" | "success" | "error" = "idle";
   protected errorMessage = "";
   public formSubmitted = false;
+  protected registrationSuccess = false;
 
   protected registerForm = new FormGroup({
     "email": new FormControl("", [Validators.required, Validators.email]),
@@ -114,12 +115,15 @@ export class RegisterComponent {
 
     this.formState = 'submitting';
     this.errorMessage = '';
+    this.registrationSuccess = false;
 
     this.authService.register(registerData).subscribe({
       next: (response) => {
-        console.log("Registration successful", response);
         this.formState = 'success';
-        this.router.navigate(["/"]);
+        this.registrationSuccess = true;
+        setTimeout(() => {
+          this.router.navigate(["/"]);
+        }, 5000);
       },
       error: (error) => {
         console.log("Registration failed", error);

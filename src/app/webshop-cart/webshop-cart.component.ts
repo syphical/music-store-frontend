@@ -23,6 +23,10 @@ export class WebshopCartComponent {
   protected checkoutError: string | null = null;
   protected isLoading = false;
 
+  protected getImagePath(productId: any): string {
+    return "../../assets/" + productId + ".webp";
+  }
+
   get cartItems() {
     return this.cartService.getCartItems();
   }

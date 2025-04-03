@@ -53,6 +53,7 @@ button {
   margin: auto;
   gap: 9.4rem;
   padding-bottom: 10.5rem;
+  justify-content: space-between;
 
   .login-container {
     padding: 1.5rem;
@@ -110,6 +111,7 @@ button {
   .register-container {
     padding: 1.5rem;
     border: solid 1px #f3f3f3;
+    width: 482px;
 
     ul {
       list-style-type: none;

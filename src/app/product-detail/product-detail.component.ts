@@ -5,12 +5,14 @@ import {Product} from '../models/Product';
 import {CurrencyPipe} from '@angular/common';
 import {CartService} from '../services/cart.service';
 import {FormsModule} from '@angular/forms';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-detail',
   imports: [
     CurrencyPipe,
-    FormsModule
+    FormsModule,
+    TranslatePipe
   ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'

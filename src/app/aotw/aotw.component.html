@@ -1,8 +1,8 @@
 <div class="flex-container">
   <div class="left-half-container">
-  <h1>Album van de week</h1>
+  <h1>{{ 'AOTW.TITLE' | translate }}</h1>
   <h3>aespa:<br> Drama - The 4th Mini Album</h3>
-  <button type="button">Koop nu</button>
+  <button type="button" [routerLink]="['/products/8']">{{ 'AOTW.BUY_NOW' | translate }}</button>
   </div>
   <div class="right-half-container">
     <img src="../../assets/aespa-drama.png" alt="Foto van leden van de groep Aespa">

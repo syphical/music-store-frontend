@@ -3,13 +3,15 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {NgClass} from '@angular/common';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
     RouterLink,
-    NgClass
+    NgClass,
+    TranslatePipe
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -18,6 +20,7 @@ export class LoginComponent {
 
   private authService = inject(AuthService);
   private router = inject(Router);
+  private translateService = inject(TranslateService);
   protected formState: "idle" | "submitting" | "success" | "error" = "idle";
   protected errorMessage = "";
   public formSubmitted = false;
@@ -55,7 +58,9 @@ export class LoginComponent {
 
     if (this.loginForm.invalid) {
       console.log("Invalid information");
-      this.errorMessage = 'Vul alle verplichte velden correct in.';
+      this.translateService.get('LOGIN.FORM_INVALID').subscribe(text => {
+        this.errorMessage = text;
+      });
       this.formState = 'error';
       return;
     }
@@ -75,7 +80,9 @@ export class LoginComponent {
       },
       error: (error) => {
         console.log("Login failed", error);
-        this.errorMessage = 'Inloggen mislukt. Controleer je gegevens en probeer het opnieuw.';
+        this.translateService.get('LOGIN.LOGIN_FAILED').subscribe(text => {
+          this.errorMessage = text;
+        });
         this.formState = 'error';
       }
     })

@@ -3,14 +3,16 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {CommonModule} from '@angular/common';
+import {TranslatePipe, TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-register',
-  imports: [
-    ReactiveFormsModule,
-    RouterLink,
-    CommonModule
-  ],
+    imports: [
+        ReactiveFormsModule,
+        RouterLink,
+        CommonModule,
+        TranslatePipe
+    ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -18,6 +20,7 @@ export class RegisterComponent {
 
   private authService = inject(AuthService);
   private router = inject(Router);
+  private translateService = inject(TranslateService);
   protected formState: "idle" | "submitting" | "success" | "error" = "idle";
   protected errorMessage = "";
   public formSubmitted = false;
@@ -95,7 +98,9 @@ export class RegisterComponent {
 
     if (this.registerForm.invalid) {
       console.log("Invalid information");
-      this.errorMessage = 'Vul alle verplichte velden correct in.';
+      this.translateService.get('REGISTER.FORM_INVALID').subscribe(text => {
+        this.errorMessage = text;
+      });
       this.formState = 'error';
       return;
     }
@@ -127,7 +132,9 @@ export class RegisterComponent {
       },
       error: (error) => {
         console.log("Registration failed", error);
-        this.errorMessage = 'Registratie mislukt. Controleer je gegevens en probeer het opnieuw.';
+        this.translateService.get('REGISTER.REGISTRATION_FAILED').subscribe(text => {
+          this.errorMessage = text;
+        });
         this.formState = 'error';
       }
     });

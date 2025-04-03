@@ -2,7 +2,7 @@
   <h1>{{ product?.artist?.name }} - {{ product?.name }}</h1>
   <div class="category-artist-row">
     <h3 class="category-h3">{{ product?.category?.name }}</h3>
-    <h3 class="artist-h3">Artiest(en): <span class="artist-highlight">{{ product?.artist?.name }}</span></h3>
+    <h3 class="artist-h3">{{ 'PRODUCT_DETAIL.ARTIST' | translate }} <span class="artist-highlight">{{ product?.artist?.name }}</span></h3>
   </div>
 </div>
 
@@ -12,12 +12,12 @@
 </div>
 
 <div class="right-half-container">
-  <h3>Genre: <span class="bold-highlight">{{ product?.genre?.name }}</span></h3>
-  <h3>Drager: <span class="bold-highlight">{{ product?.category?.name }}</span></h3>
+  <h3>{{ 'PRODUCT_DETAIL.GENRE' | translate }} <span class="bold-highlight">{{ product?.genre?.name }}</span></h3>
+  <h3>{{ 'PRODUCT_DETAIL.MEDIUM' | translate }} <span class="bold-highlight">{{ product?.category?.name }}</span></h3>
   <h2>{{ product?.price | currency:"EUR":"symbol":"1.2-2" }}</h2>
-  <p class="voorraad-p">Op voorraad</p>
-  <p class="bestel-disclaimer">Voor 23:59 besteld, morgen in huis</p>
-  <p class="verkoper-p">Verkoop door Lutetia</p>
+  <p class="voorraad-p">{{ 'PRODUCT_DETAIL.IN_STOCK' | translate }}</p>
+  <p class="bestel-disclaimer">{{ 'PRODUCT_DETAIL.ORDER_BEFORE' | translate }}</p>
+  <p class="verkoper-p">{{ 'PRODUCT_DETAIL.SOLD_BY' | translate }}</p>
 
   <div class="cart-container">
     <select [(ngModel)]="quantity" class="quantity-dropdown">
@@ -25,7 +25,7 @@
         <option [value]="option">{{ option }}</option>
       }
     </select>
-    <button type="submit" class="koopbutton" (click)="addToCart()">In winkelwagen</button>
+    <button type="submit" class="koopbutton" (click)="addToCart()">{{ 'PRODUCT_DETAIL.ADD_TO_CART' | translate }}</button>
   </div>
   <p class="description-p">{{ product?.description }}</p>
 </div>

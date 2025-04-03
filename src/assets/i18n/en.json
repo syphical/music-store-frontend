@@ -1,0 +1,127 @@
+{
+  "HEADER": {
+    "ALL_PRODUCTS": "All products",
+    "CDS": "CDs",
+    "ALBUMS": "Albums",
+    "VINYL": "Vinyl"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© 2025-{{ currentYear }} Melodia b.v."
+  },
+  "HOME": {
+    "FEATURED_PRODUCTS": "Featured products",
+    "LOADING": "Loading products...",
+    "TRY_AGAIN": "Try again",
+    "LOAD_ERROR": "Could not load featured products. Please try again later."
+  },
+  "LOGIN": {
+    "HELLO": "Hello!",
+    "REGISTER": "Register",
+    "FIRST_TIME": "Is this your first time here?",
+    "REGISTER_BENEFITS": "Check out the benefits of creating an account.",
+    "DISCOUNT": "10% discount on your next order",
+    "ALL_INFO": "All your information in one place",
+    "VIEW_ORDERS": "View your previous orders",
+    "WELCOME_BACK": "Welcome back!",
+    "LOGIN_CREDENTIALS": "Use your login credentials to sign in.",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Your email address",
+    "EMAIL_REQUIRED": "Email is required",
+    "EMAIL_INVALID": "Enter a valid email address",
+    "PASSWORD": "Password",
+    "PASSWORD_PLACEHOLDER": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "LOGIN_BUTTON": "Login",
+    "FORM_INVALID": "Please fill in all required fields correctly.",
+    "LOGIN_FAILED": "Login failed. Check your credentials and try again."
+  },
+  "REGISTER": {
+    "LOGIN_TO_RETRIEVE": "Login to retrieve your information",
+    "LOGIN_BUTTON": "Login",
+    "REGISTER": "Register",
+    "FILL_INFO": "Enter information to register",
+    "SUCCESS": "Your account has been successfully created!",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Your email address",
+    "EMAIL_REQUIRED": "Email is required",
+    "EMAIL_INVALID": "Enter a valid email address",
+    "PASSWORD": "Password",
+    "PASSWORD_PLACEHOLDER": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "PASSWORD_LENGTH": "Password must be at least 8 characters long",
+    "PASSWORD_PATTERN": "Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character",
+    "FIRSTNAME": "First name",
+    "FIRSTNAME_PLACEHOLDER": "First name",
+    "FIRSTNAME_REQUIRED": "First name is required",
+    "LASTNAME": "Last name",
+    "LASTNAME_PLACEHOLDER": "Last name",
+    "LASTNAME_REQUIRED": "Last name is required",
+    "PHONE": "Phone number",
+    "PHONE_PLACEHOLDER": "Example: 0681924732",
+    "PHONE_REQUIRED": "Phone number is required",
+    "STREET": "Street",
+    "STREET_PLACEHOLDER": "Street",
+    "STREET_REQUIRED": "Street is required",
+    "HOUSENUMBER": "House number",
+    "HOUSENUMBER_PLACEHOLDER": "House number",
+    "HOUSENUMBER_REQUIRED": "House number is required",
+    "ZIPCODE": "Zip code",
+    "ZIPCODE_PLACEHOLDER": "Zip code",
+    "ZIPCODE_REQUIRED": "Zip code is required",
+    "CITY": "City",
+    "CITY_PLACEHOLDER": "City",
+    "CITY_REQUIRED": "City is required",
+    "PROVINCE": "Province",
+    "PROVINCE_PLACEHOLDER": "Province",
+    "PROVINCE_REQUIRED": "Province is required",
+    "REGISTERING": "Registering...",
+    "REGISTER_BUTTON": "Register",
+    "REGISTRATION_FAILED": "Registration failed. Check your information and try again.",
+    "FORM_INVALID": "Fill in all required fields correctly."
+  },
+  "CART": {
+    "TITLE": "Shopping Cart",
+    "EMPTY": "Your shopping cart is empty!",
+    "ORDER_SUCCESS": "Your order has been placed!",
+    "PRODUCT_IMAGE": "Image of",
+    "QUANTITY": "Quantity",
+    "REMOVE": "Remove",
+    "ORDER_SUMMARY": "Order summary",
+    "TOTAL": "Total:",
+    "CHECKOUT_LOADING": "Processing checkout...",
+    "CHECKOUT": "Checkout",
+    "CHECKOUT_ERROR": "Something went wrong with the checkout. Please try again later."
+  },
+  "PRODUCT_DETAIL": {
+    "CATEGORY": "Category",
+    "ARTIST": "Artist(s):",
+    "GENRE": "Genre:",
+    "MEDIUM": "Format:",
+    "IN_STOCK": "In stock",
+    "ORDER_BEFORE": "Order before 11:59 PM, delivered tomorrow",
+    "SOLD_BY": "Sold by Lutetia",
+    "ADD_TO_CART": "Add to cart"
+  },
+  "PRODUCT_LIST": {
+    "NO_PRODUCTS": "There are no products in this category."
+  },
+  "PROFILE": {
+    "TITLE": "Profile",
+    "LOGOUT_TITLE": "Click here to log out",
+    "LOGOUT_BUTTON": "Log out",
+    "ORDERS_TITLE": "Orders",
+    "ORDER_ID": "Order #",
+    "ORDER_DATE": "Date",
+    "TOTAL_PRICE": "Total price:",
+    "QUANTITY": "Quantity:",
+    "NO_ORDERS": "You have no orders yet."
+  },
+  "AOTW": {
+    "TITLE": "Album of the week",
+    "BUY_NOW": "Buy now"
+  },
+  "PRODUCT_CARD": {
+    "ADD_TO_CART": "Add to cart",
+    "MORE_INFO": "More info"
+  }
+}

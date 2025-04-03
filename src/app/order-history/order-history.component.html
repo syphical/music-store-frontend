@@ -1,27 +1,27 @@
-<h1>Profiel</h1>
+<h1>{{ 'PROFILE.TITLE' | translate }}</h1>
 
 <div class="loguit-container">
-<h2>Klik hier om uit te loggen</h2>
-<button type="button" (click)="authService.logout()">Uitloggen</button>
+<h2>{{ 'PROFILE.LOGOUT_TITLE' | translate }}</h2>
+<button type="button" (click)="authService.logout()">{{ 'PROFILE.LOGOUT_BUTTON' | translate }}</button>
 </div>
 
 
-<h2 class="bestellingen-header">Bestellingen</h2>
+<h2 class="bestellingen-header">{{ 'PROFILE.ORDERS_TITLE' | translate }}</h2>
     @if (orderHistory() && orderHistory()!.length > 0) {
       @for (order of orderHistory() ; track order) {
         <div class="order-container">
         <div class="first-row">
-        <h3 class="order-id">Bestelling #{{ order.id }}</h3>
+        <h3 class="order-id">{{ 'PROFILE.ORDER_ID' | translate }}{{ order.id }}</h3>
         <h3 class="order-date">{{ order.orderDate }}</h3>
         </div>
-        <h3>Totale prijs: {{ order.totalAmount | currency:"EUR":"symbol":"1.2-2"}}</h3>
+        <h3>{{ 'PROFILE.TOTAL_PRICE' | translate }} {{ order.totalAmount | currency:"EUR":"symbol":"1.2-2"}}</h3>
         @for (product of order.orderItems ; track product.productId) {
           <h2>{{ product.productName }}</h2>
           <h3>{{ product.productPrice | currency:"EUR":"symbol":"1.2-2"}}</h3>
-          <h3>Aantal: {{ product.quantity }}</h3>
+          <h3>{{ 'PROFILE.QUANTITY' | translate }} {{ product.quantity }}</h3>
         }
         </div>
       }
     } @else {
-      <h3 class="no-orders">Je hebt nog geen bestellingen.</h3>
+      <h3 class="no-orders">{{ 'PROFILE.NO_ORDERS' | translate }}</h3>
     }

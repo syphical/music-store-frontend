@@ -1,11 +1,11 @@
 @if (!isFeatured) {
   <div class="category-title">
-    <h1>{{ categoryName }}</h1>
+    <h1>{{ categoryName === 'HEADER.ALL_PRODUCTS' ? (categoryName | translate) : categoryName }}</h1>
   </div>
 }
 
 @if (products().length === 0) {
-  <h3 class="no-products">Er zijn geen producten in deze categorie.</h3>
+  <h3 class="no-products">{{ 'PRODUCT_LIST.NO_PRODUCTS' | translate }}</h3>
 } @else {
   @for (product of products() ; track product.id) {
     <app-product-card [product]="product" (productAdded)="onProductAdded($event)"/>

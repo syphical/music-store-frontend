@@ -3,15 +3,17 @@ import {WebshopProductListComponent} from '../webshop-product-list/webshop-produ
 import {AotwComponent} from '../aotw/aotw.component';
 import {ProductService} from '../services/product.service';
 import {Product} from '../models/Product';
+import {TranslatePipe, TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-webshop-home',
-  imports: [WebshopProductListComponent, AotwComponent],
+    imports: [WebshopProductListComponent, AotwComponent, TranslatePipe],
   templateUrl: './webshop-home.component.html',
   styleUrl: './webshop-home.component.scss'
 })
 export class WebshopHomeComponent implements OnInit {
   private productService = inject(ProductService);
+  private translateService = inject(TranslateService);
   public featuredProducts = signal<Product[]>([]);
   protected isLoading = false;
   error: string | null = null;
@@ -30,7 +32,9 @@ export class WebshopHomeComponent implements OnInit {
         this.isLoading = false;
       },
       error: (err) => {
-        this.error = "Kon de aanbevolen producten niet laden. Probeer het later opnieuw.";
+        this.translateService.get('HOME.LOAD_ERROR').subscribe(text => {
+          this.error = text;
+        })
         this.isLoading = false;
         console.error("Error loading featured products:", err);
       }

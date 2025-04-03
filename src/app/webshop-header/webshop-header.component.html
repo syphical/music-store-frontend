@@ -7,10 +7,13 @@
 
     <div class="nav-links">
       <div class="search-container">
-<!--        <span class="material-icons search-icon">search</span>-->
-<!--        <input class="searchbar" type="search" placeholder="Zoeken..">-->
+        <!--        <span class="material-icons search-icon">search</span>-->
+        <!--        <input class="searchbar" type="search" placeholder="Zoeken..">-->
       </div>
-<!--      routerLink="/login"-->
+      <div class="language-selector">
+          <img src="../../assets/nl_flag.svg" alt="Dutch Flag" (click)="switchLanguage('nl')" class="flag-icon">
+          <img src="../../assets/us_flag.svg" alt="English Flag" (click)="switchLanguage('en')" class="flag-icon">
+      </div>
       <a class="account-icon" (click)="loginCheck('/profile')">
         <span class="material-icons">person</span>
       </a>
@@ -23,11 +26,11 @@
 
 <div class="sub-header-container">
   <div class="left-nav-links">
-    <a routerLink="/products">Alle producten</a>
+    <a routerLink="/products">{{ 'HEADER.ALL_PRODUCTS' | translate }}</a>
   </div>
   <div class="right-nav-links">
-    <a routerLink="/products" [queryParams]="{category: 'CD'}">CDs</a>
-    <a routerLink="/products" [queryParams]="{category: 'Album'}">Albums</a>
-    <a routerLink="/products" [queryParams]="{category: 'Vinyl'}">Vinyl</a>
+    <a routerLink="/products" [queryParams]="{category: 'CD'}">{{ 'HEADER.CDS' | translate }}</a>
+    <a routerLink="/products" [queryParams]="{category: 'Album'}">{{ 'HEADER.ALBUMS' | translate }}</a>
+    <a routerLink="/products" [queryParams]="{category: 'Vinyl'}">{{ 'HEADER.VINYL' | translate }}</a>
   </div>
 </div>

@@ -4,9 +4,9 @@
     <h3 class="product-artiest">{{ product.artist.name }}</h3>
     <h2 class="product-naam">{{ product.name }}</h2>
     <h3 class="product-prijs">{{ product.price | currency:"EUR":"symbol":"1.2-2" }}</h3>
-    <button class="koopbutton" (click)="addToCart()">In winkelwagen</button>
+    <button class="koopbutton" (click)="addToCart()">{{ 'PRODUCT_CARD.ADD_TO_CART' | translate }}</button>
     <a class="detailslink" routerLink="/products/{{ product.id }}">
-    <button class="detailsbutton">Meer info</button>
+    <button class="detailsbutton">{{ 'PRODUCT_CARD.MORE_INFO' | translate }}</button>
     </a>
   </div>
 </div>

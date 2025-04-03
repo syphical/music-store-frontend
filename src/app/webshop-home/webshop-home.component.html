@@ -1,21 +1,17 @@
 <app-aotw/>
 
-<ol>
-  <li>Site vertalen</li>
-</ol>
-
 <div class="featured-section">
-  <h1 class="featured-title">Aanbevolen producten</h1>
+  <h1 class="featured-title">{{ 'HOME.FEATURED_PRODUCTS' | translate }}</h1>
 </div>
 <div class="product-lijst">
   @if (isLoading) {
     <div class="loading-spinner">
-      <p>Producten worden geladen...</p>
+      <p>{{ 'HOME.LOADING' | translate }}</p>
     </div>
   } @else if (error) {
     <div class="error-message">
       <p>{{ error }}</p>
-      <button (click)="loadFeaturedProducts()">Probeer opnieuw</button>
+      <button (click)="loadFeaturedProducts()">{{ 'HOME.TRY_AGAIN' | translate }}</button>
     </div>
   } @else {
     <app-webshop-product-list [products]="featuredProducts" [isFeatured]="true"/>

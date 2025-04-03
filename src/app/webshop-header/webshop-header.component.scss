@@ -49,6 +49,23 @@
   gap: 1.2rem;
   margin-right: 6rem;
 
+  .language-selector {
+    display: flex;
+    align-items: center;
+
+    .flag-icon {
+      width: 24px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+      margin-left: 20px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
   a {
     display: flex;
     align-items: center;

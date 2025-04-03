@@ -1,5 +1,5 @@
 <div class="title-container">
-  <h1>Hallo!</h1>
+  <h1>{{ 'LOGIN.HELLO' | translate }}</h1>
 </div>
 
 <div class="flex-container">
@@ -7,51 +7,51 @@
 
 
   <div class="register-container">
-    <h2>Registreren</h2>
-    <p>Kom je hier voor het eerst?<br>Bekijk hier de voordelen van het aanmaken van een account.</p>
+    <h2>{{ 'LOGIN.REGISTER' | translate }}</h2>
+    <p>{{ 'LOGIN.FIRST_TIME' | translate }}<br>{{ 'LOGIN.REGISTER_BENEFITS' | translate }}</p>
     <ul>
       <li>
         <span class="material-symbols-outlined">check</span>
-        10% korting op je eerst volgende bestelling
+        {{ 'LOGIN.DISCOUNT' | translate }}
       </li>
       <li>
         <span class="material-symbols-outlined">check</span>
-        Al je gegevens bij elkaar op een plek
+        {{ 'LOGIN.ALL_INFO' | translate }}
       </li>
       <li>
         <span class="material-symbols-outlined">check</span>
-        Bekijk je vorige bestellingen
+        {{ 'LOGIN.VIEW_ORDERS' | translate }}
       </li>
     </ul>
 
-    <button type="button" routerLink="/register">Registreren</button>
+    <button type="button" routerLink="/register">{{ 'LOGIN.REGISTER' | translate }}</button>
   </div>
 
   <div class="login-container">
-    <h2>Welkom terug!</h2>
-    <p>Gebruik je inloggegevens om in te loggen.</p>
+    <h2>{{ 'LOGIN.WELCOME_BACK' | translate }}</h2>
+    <p>{{ 'LOGIN.LOGIN_CREDENTIALS' | translate }}</p>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <p class="input-field">
-        <label>Email<br></label>
-        <input type="email" formControlName="email" placeholder="Jouw emailadres"
+        <label>{{ 'LOGIN.EMAIL' | translate }}<br></label>
+        <input type="email" formControlName="email" placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}"
                [ngClass]="{'invalid-input': loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || formSubmitted)}">
         @if (loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || formSubmitted)) {
           @if (loginForm.get('email')?.errors?.['required']) {
-            <span class="error-text">Email is verplicht</span>
+            <span class="error-text">{{ 'LOGIN.EMAIL_REQUIRED' | translate }}</span>
           }
           @if (loginForm.get('email')?.errors?.['email']) {
-            <span class="error-text">Voer een geldig emailadres in</span>
+            <span class="error-text">{{ 'LOGIN.EMAIL_INVALID' | translate }}</span>
           }
         }
       </p>
 
       <p class="input-field">
-        <label>Wachtwoord<br></label>
-        <input type="password" formControlName="password" placeholder="Wachtwoord"
+        <label>{{ 'LOGIN.PASSWORD' | translate }}<br></label>
+        <input type="password" formControlName="password" placeholder="{{ 'LOGIN.PASSWORD_PLACEHOLDER' | translate }}"
                [ngClass]="{'invalid-input': loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || formSubmitted)}">
         @if (loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || formSubmitted)) {
           @if (loginForm.get('password')?.errors?.['required']) {
-            <span class="error-text">Wachtwoord is verplicht</span>
+            <span class="error-text">{{ 'LOGIN.PASSWORD_REQUIRED' | translate }}</span>
           }
         }
       </p>
@@ -62,7 +62,7 @@
         </div>
       }
 
-      <button type="submit">Login</button>
+      <button type="submit">{{ 'LOGIN.LOGIN_BUTTON' | translate }}</button>
     </form>
   </div>
 </div>

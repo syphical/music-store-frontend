@@ -6,11 +6,13 @@ import {Order} from '../models/Order';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-webshop-cart',
   imports: [
-    CurrencyPipe
+    CurrencyPipe,
+    TranslatePipe
   ],
   templateUrl: './webshop-cart.component.html',
   styleUrl: './webshop-cart.component.scss'
@@ -19,6 +21,7 @@ export class WebshopCartComponent {
   private cartService = inject(CartService);
   private httpClient = inject(HttpClient);
   private router = inject(Router);
+  private translateService = inject(TranslateService);
   protected checkoutSuccess = false;
   protected checkoutError: string | null = null;
   protected isLoading = false;
@@ -69,7 +72,9 @@ export class WebshopCartComponent {
         }, 5000)
       },
       error: error => {
-        this.checkoutError = 'Er is iets misgegaan bij het afrekenen. Probeer het later opnieuw.';
+        this.translateService.get('CART.CHECKOUT_ERROR').subscribe(text => {
+          this.checkoutError = text;
+        });
         this.isLoading = false;
         console.error('Checkout error:', error);
       }

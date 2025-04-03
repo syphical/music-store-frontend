@@ -1,139 +1,139 @@
 <div class="login-container">
-  <p>Login om je gegevens op te halen</p>
-  <button type="button" routerLink="/login">Inloggen</button>
+  <p>{{ 'REGISTER.LOGIN_TO_RETRIEVE' | translate }}</p>
+  <button type="button" routerLink="/login">{{ 'REGISTER.LOGIN_BUTTON' | translate }}</button>
 </div>
 
 <div class="flex-container">
 
   <div class="register-container">
-    <h1>Registreren</h1>
-    <h3>Vul informatie in om je te kunnen registreren</h3>
+    <h1>{{ 'REGISTER.REGISTER' | translate }}</h1>
+    <h3>{{ 'REGISTER.FILL_INFO' | translate }}</h3>
 
     @if (registrationSuccess) {
       <div class="success-message">
-        <p>Je account is succesvol aangemaakt!</p>
+        <p>{{ 'REGISTER.SUCCESS' | translate }}</p>
       </div>
     } @else {
       <form [formGroup]="registerForm" (ngSubmit)="register()">
         <p class="input-field">
-          <label>Email<br></label>
-          <input class="max-input" type="email" formControlName="email" placeholder="Jouw emailadres"
+          <label>{{ 'REGISTER.EMAIL' | translate }}<br></label>
+          <input class="max-input" type="email" formControlName="email" placeholder="{{ 'REGISTER.EMAIL_PLACEHOLDER' | translate }}"
                  [ngClass]="{'invalid-input': registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || formSubmitted)}">
           @if (registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || formSubmitted)) {
             @if (registerForm.get('email')?.errors?.['required']) {
-              <span class="error-text">Email is verplicht</span>
+              <span class="error-text">{{ 'REGISTER.EMAIL_REQUIRED' | translate }}</span>
             }
             @if (registerForm.get('email')?.errors?.['email']) {
-              <span class="error-text">Voer een geldig emailadres in</span>
+              <span class="error-text">{{ 'REGISTER.EMAIL_INVALID' | translate }}</span>
             }
           }
         </p>
 
         <p class="input-field">
-          <label>Wachtwoord<br></label>
-          <input class="max-input" type="password" formControlName="password" placeholder="Wachtwoord"
+          <label>{{ 'PASSWORD' | translate }}<br></label>
+          <input class="max-input" type="password" formControlName="password" placeholder="{{ 'REGISTER.PASSWORD_PLACEHOLDER' | translate }}"
                  [ngClass]="{'invalid-input': registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || formSubmitted)}">
           @if (registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || formSubmitted)) {
             @if (registerForm.get('password')?.errors?.['required']) {
-              <span class="error-text">Wachtwoord is verplicht</span>
+              <span class="error-text">{{ 'REGISTER.PASSWORD_REQUIRED' | translate }}</span>
             }
             @if (registerForm.get('password')?.errors?.['minlength']) {
-              <span class="error-text">Wachtwoord moet minimaal 8 tekens bevatten</span>
+              <span class="error-text">{{ 'REGISTER.PASSWORD_LENGTH' | translate }}</span>
             }
             @if (registerForm.get('password')?.errors?.['pattern']) {
-              <span class="error-text">Wachtwoord moet minimaal 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken bevatten</span>
+              <span class="error-text">{{ 'REGISTER.PASSWORD_PATTERN' | translate }}</span>
             }
           }
         </p>
 
         <div class="two_fields">
           <p class="input-field">
-            <label>Voornaam<br></label>
-            <input class="small-input" type="text" formControlName="firstname" placeholder="Voornaam"
+            <label>{{ 'REGISTER.FIRSTNAME' | translate }}<br></label>
+            <input class="small-input" type="text" formControlName="firstname" placeholder="{{ 'REGISTER.FIRSTNAME_PLACEHOLDER' | translate }}"
                    [ngClass]="{'invalid-input': registerForm.get('firstname')?.invalid && (registerForm.get('firstname')?.touched || formSubmitted)}">
             @if (registerForm.get('firstname')?.invalid && (registerForm.get('firstname')?.touched || formSubmitted)) {
               @if (registerForm.get('firstname')?.errors?.['required']) {
-                <span class="error-text">Voornaam is verplicht</span>
+                <span class="error-text">{{ 'REGISTER.FIRSTNAME_REQUIRED' | translate }}</span>
               }
             }
           </p>
 
           <p class="input-field">
-            <label>Achternaam<br></label>
-            <input class="small-input" type="text" formControlName="lastname" placeholder="Achternaam"
+            <label>{{ 'REGISTER.LASTNAME' | translate }}<br></label>
+            <input class="small-input" type="text" formControlName="lastname" placeholder="{{ 'REGISTER.LASTNAME_PLACEHOLDER' | translate }}"
                    [ngClass]="{'invalid-input': registerForm.get('lastname')?.invalid && (registerForm.get('lastname')?.touched || formSubmitted)}">
             @if (registerForm.get('lastname')?.invalid && (registerForm.get('lastname')?.touched || formSubmitted)) {
               @if (registerForm.get('lastname')?.errors?.['required']) {
-                <span class="error-text">Achternaam is verplicht</span>
+                <span class="error-text">{{ 'REGISTER.LASTNAME_REQUIRED' | translate }}</span>
               }
             }
           </p>
         </div>
 
         <p class="input-field">
-          <label>Telefoonnummer<br></label>
-          <input class="max-input" type="text" formControlName="phonenumber" placeholder="Voorbeeld: 0681924732"
+          <label>{{ 'REGISTER.PHONE' | translate }}<br></label>
+          <input class="max-input" type="text" formControlName="phonenumber" placeholder="{{ 'REGISTER.PHONE_PLACEHOLDER' | translate }}"
                  [ngClass]="{'invalid-input': registerForm.get('phonenumber')?.invalid && (registerForm.get('phonenumber')?.touched || formSubmitted)}">
           @if (registerForm.get('phonenumber')?.invalid && (registerForm.get('phonenumber')?.touched || formSubmitted)) {
             @if (registerForm.get('phonenumber')?.errors?.['required']) {
-              <span class="error-text">Telefoonnummer is verplicht</span>
+              <span class="error-text">{{ 'REGISTER.PHONE_REQUIRED' | translate }}</span>
             }
           }
         </p>
 
         <p class="input-field">
-          <label>Straat<br></label>
-          <input class="max-input" type="text" formControlName="streetaddress" placeholder="Straat"
+          <label>{{ 'REGISTER.STREET' | translate }}<br></label>
+          <input class="max-input" type="text" formControlName="streetaddress" placeholder="{{ 'REGISTER.STREET_PLACEHOLDER' | translate }}"
                  [ngClass]="{'invalid-input': registerForm.get('streetaddress')?.invalid && (registerForm.get('streetaddress')?.touched || formSubmitted)}">
           @if (registerForm.get('streetaddress')?.invalid && (registerForm.get('streetaddress')?.touched || formSubmitted)) {
             @if (registerForm.get('streetaddress')?.errors?.['required']) {
-              <span class="error-text">Straat is verplicht</span>
+              <span class="error-text">{{ 'REGISTER.STREET_REQUIRED' | translate }}</span>
             }
           }
         </p>
 
         <div class="two_fields">
           <p class="input-field">
-            <label>Huisnummer<br></label>
-            <input class="small-input" type="text" formControlName="housenumber" placeholder="Huisnummer"
+            <label>{{ 'REGISTER.HOUSENUMBER' | translate }}<br></label>
+            <input class="small-input" type="text" formControlName="housenumber" placeholder="{{ 'REGISTER.HOUSENUMBER_PLACEHOLDER' | translate }}"
                    [ngClass]="{'invalid-input': registerForm.get('housenumber')?.invalid && (registerForm.get('housenumber')?.touched || formSubmitted)}">
             @if (registerForm.get('housenumber')?.invalid && (registerForm.get('housenumber')?.touched || formSubmitted)) {
               @if (registerForm.get('housenumber')?.errors?.['required']) {
-                <span class="error-text">Huisnummer is verplicht</span>
+                <span class="error-text">{{ 'REGISTER.HOUSENUMBER_REQUIRED' | translate }}</span>
               }
             }
           </p>
 
           <p class="input-field">
-            <label>Postcode<br></label>
-            <input class="small-input" type="text" formControlName="zipcode" placeholder="Postcode"
+            <label>{{ 'REGISTER.ZIPCODE' | translate }}<br></label>
+            <input class="small-input" type="text" formControlName="zipcode" placeholder="{{ 'REGISTER.ZIPCODE_PLACEHOLDER' | translate }}"
                    [ngClass]="{'invalid-input': registerForm.get('zipcode')?.invalid && (registerForm.get('zipcode')?.touched || formSubmitted)}">
             @if (registerForm.get('zipcode')?.invalid && (registerForm.get('zipcode')?.touched || formSubmitted)) {
               @if (registerForm.get('zipcode')?.errors?.['required']) {
-                <span class="error-text">Postcode is verplicht</span>
+                <span class="error-text">{{ 'REGISTER.ZIPCODE_REQUIRED' | translate }}</span>
               }
             }
           </p>
         </div>
 
         <p class="input-field">
-          <label>Stad<br></label>
-          <input class="max-input" type="text" formControlName="city" placeholder="Stad"
+          <label>{{ 'REGISTER.CITY' | translate }}<br></label>
+          <input class="max-input" type="text" formControlName="city" placeholder="{{ 'REGISTER.CITY_PLACEHOLDER' | translate }}"
                  [ngClass]="{'invalid-input': registerForm.get('city')?.invalid && (registerForm.get('city')?.touched || formSubmitted)}">
           @if (registerForm.get('city')?.invalid && (registerForm.get('city')?.touched || formSubmitted)) {
             @if (registerForm.get('city')?.errors?.['required']) {
-              <span class="error-text">Stad is verplicht</span>
+              <span class="error-text">{{ 'REGISTER.CITY_REQUIRED' | translate }}</span>
             }
           }
         </p>
 
         <p class="input-field">
-          <label>Provincie<br></label>
-          <input class="max-input" type="text" formControlName="province" placeholder="Provincie"
+          <label>{{ 'REGISTER.PROVINCE' | translate }}<br></label>
+          <input class="max-input" type="text" formControlName="province" placeholder="{{ 'REGISTER.PROVINCE_PLACEHOLDER' | translate }}"
                  [ngClass]="{'invalid-input': registerForm.get('province')?.invalid && (registerForm.get('province')?.touched || formSubmitted)}">
           @if (registerForm.get('province')?.invalid && (registerForm.get('province')?.touched || formSubmitted)) {
             @if (registerForm.get('province')?.errors?.['required']) {
-              <span class="error-text">Provincie is verplicht</span>
+              <span class="error-text">{{ 'REGISTER.PROVINCE_REQUIRED' | translate }}</span>
             }
           }
         </p>
@@ -147,7 +147,7 @@
         <button
           type="submit"
           [disabled]="formState === 'submitting'">
-          {{ formState === 'submitting' ? 'Bezig met registreren...' : 'Registreren' }}
+          {{ formState === 'submitting' ? ('REGISTER.REGISTERING' | translate) : ('REGISTER.REGISTER_BUTTON' | translate) }}
         </button>
       </form>
     }

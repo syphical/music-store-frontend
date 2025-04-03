@@ -2,12 +2,14 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CurrencyPipe} from '@angular/common';
 import {Product} from '../models/Product';
 import {RouterLink} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-card',
   imports: [
     CurrencyPipe,
-    RouterLink
+    RouterLink,
+    TranslatePipe
   ],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'

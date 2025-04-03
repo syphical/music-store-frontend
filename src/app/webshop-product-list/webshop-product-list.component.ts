@@ -4,11 +4,13 @@ import {ProductService} from '../services/product.service';
 import {Product} from '../models/Product';
 import { CartService } from '../services/cart.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-webshop-product-list',
   imports: [
-    ProductCardComponent
+    ProductCardComponent,
+    TranslatePipe
   ],
   templateUrl: './webshop-product-list.component.html',
   styleUrl: './webshop-product-list.component.scss'
@@ -26,14 +28,14 @@ export class WebshopProductListComponent implements OnInit {
   ngOnInit(): void {
     if (!this.isFeatured) {
       this.route.queryParams.subscribe(params => {
-        this.categoryName = params["category"] || "Alle producten";
+        this.categoryName = params["category"] || "HEADER.ALL_PRODUCTS";
         this.loadProductsByCategory();
       });
     }
   }
 
   private loadProductsByCategory(): void {
-    if (this.categoryName.toLowerCase() === "alle producten") {
+    if (this.categoryName === "HEADER.ALL_PRODUCTS") {
       this.products = this.productService.getProducts();
     } else {
       this.products = this.productService.getProductsByCategory(this.categoryName);

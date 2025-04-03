@@ -1,23 +1,23 @@
 <div class="cart-container">
-  <h1 class="cart-title">Winkelwagen</h1>
+  <h1 class="cart-title">{{ 'CART.TITLE' | translate }}</h1>
 
   @if (cartItems().length === 0 && !checkoutSuccess) {
-    <p class="empty-cart">Je winkelwagen is leeg!</p>
+    <p class="empty-cart">{{ 'CART.EMPTY' | translate }}</p>
   } @else if (checkoutSuccess) {
     <div class="success-message">
-      <p>Je bestelling is geplaatst!</p>
+      <p>{{ 'CART.ORDER_SUCCESS' | translate }}</p>
     </div>
   } @else {
     <div class="cart-items">
       @for (item of cartItems() ; track item.product.id) {
         <div class="cart-item">
-          <img [src]="getImagePath(item.product.id) || '../../assets/UbermenschPINK.webp'" alt="Plaatje van {{ item.product.artist.name }} {{ item.product.name }}">
+          <img [src]="getImagePath(item.product.id) || '../../assets/UbermenschPINK.webp'" alt="{{ 'CART.PRODUCT_IMAGE' | translate }} {{ item.product.artist.name }} {{ item.product.name }}">
           <div class="item-details">
             <h3>{{ item.product.name }}</h3>
             <p>{{ item.product.artist.name }}</p>
             <p>{{ item.product.price | currency:"EUR":"symbol":"1.2-2" }}</p>
-            <p>Aantal: {{ item.quantity }}</p>
-            <button class="remove-button" (click)="removeItem(item.product.id)">Verwijderen</button>
+            <p>{{ 'CART.QUANTITY' | translate }}: {{ item.quantity }}</p>
+            <button class="remove-button" (click)="removeItem(item.product.id)">{{ 'CART.REMOVE' | translate }}</button>
           </div>
         </div>
       }
@@ -25,9 +25,9 @@
 
     <div class="checkout-section">
       <div class="order-summary">
-        <h2>Bestelling overzicht</h2>
+        <h2>{{ 'CART.ORDER_SUMMARY' | translate }}</h2>
         <div class="total-row">
-          <span>Totaal:</span>
+          <span>{{ 'CART.TOTAL' | translate }}</span>
           <span class="total-amount">{{ totalCost | currency:"EUR":"symbol":"1.2-2" }}</span>
         </div>
       </div>
@@ -39,7 +39,7 @@
       }
 
       <button class="checkout-button" (click)="checkout()" [disabled]="cartItems().length === 0 || isLoading">
-        {{ isLoading ? 'Bezig met afrekenen...' : 'Afrekenen' }}
+        {{ isLoading ? ('CART.CHECKOUT_LOADING' | translate) : ('CART.CHECKOUT' | translate) }}
       </button>
     </div>
   }

@@ -1,0 +1,127 @@
+{
+  "HEADER": {
+    "ALL_PRODUCTS": "Alle producten",
+    "CDS": "CDs",
+    "ALBUMS": "Albums",
+    "VINYL": "Vinyl"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© 2025-{{ currentYear }} Melodia b.v."
+  },
+  "HOME": {
+    "FEATURED_PRODUCTS": "Aanbevolen producten",
+    "LOADING": "Producten worden geladen...",
+    "TRY_AGAIN": "Probeer opnieuw",
+    "LOAD_ERROR": "Kon de aanbevolen producten niet laden. Probeer het later opnieuw."
+  },
+  "LOGIN": {
+    "HELLO": "Hallo!",
+    "REGISTER": "Registreren",
+    "FIRST_TIME": "Kom je hier voor het eerst?",
+    "REGISTER_BENEFITS": "Bekijk hier de voordelen van het aanmaken van een account.",
+    "DISCOUNT": "10% korting op je eerst volgende bestelling",
+    "ALL_INFO": "Al je gegevens bij elkaar op een plek",
+    "VIEW_ORDERS": "Bekijk je vorige bestellingen",
+    "WELCOME_BACK": "Welkom terug!",
+    "LOGIN_CREDENTIALS": "Gebruik je inloggegevens om in te loggen.",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Jouw emailadres",
+    "EMAIL_REQUIRED": "Email is verplicht",
+    "EMAIL_INVALID": "Voer een geldig emailadres in",
+    "PASSWORD": "Wachtwoord",
+    "PASSWORD_PLACEHOLDER": "Wachtwoord",
+    "PASSWORD_REQUIRED": "Wachtwoord is verplicht",
+    "LOGIN_BUTTON": "Login",
+    "FORM_INVALID": "Vul alle verplichte velden correct in.",
+    "LOGIN_FAILED": "Inloggen mislukt. Controleer je gegevens en probeer het opnieuw."
+  },
+  "REGISTER": {
+    "LOGIN_TO_RETRIEVE": "Login om je gegevens op te halen",
+    "LOGIN_BUTTON": "Inloggen",
+    "REGISTER": "Registreren",
+    "FILL_INFO": "Vul informatie in om je te kunnen registreren",
+    "SUCCESS": "Je account is succesvol aangemaakt!",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Jouw emailadres",
+    "EMAIL_REQUIRED": "Email is verplicht",
+    "EMAIL_INVALID": "Voer een geldig emailadres in",
+    "PASSWORD": "Wachtwoord",
+    "PASSWORD_PLACEHOLDER": "Wachtwoord",
+    "PASSWORD_REQUIRED": "Wachtwoord is verplicht",
+    "PASSWORD_LENGTH": "Wachtwoord moet minimaal 8 tekens bevatten",
+    "PASSWORD_PATTERN": "Wachtwoord moet minimaal 1 hoofdletter, 1 kleine letter, 1 cijfer en 1 speciaal teken bevatten",
+    "FIRSTNAME": "Voornaam",
+    "FIRSTNAME_PLACEHOLDER": "Voornaam",
+    "FIRSTNAME_REQUIRED": "Voornaam is verplicht",
+    "LASTNAME": "Achternaam",
+    "LASTNAME_PLACEHOLDER": "Achternaam",
+    "LASTNAME_REQUIRED": "Achternaam is verplicht",
+    "PHONE": "Telefoonnummer",
+    "PHONE_PLACEHOLDER": "Voorbeeld: 0681924732",
+    "PHONE_REQUIRED": "Telefoonnummer is verplicht",
+    "STREET": "Straat",
+    "STREET_PLACEHOLDER": "Straat",
+    "STREET_REQUIRED": "Straat is verplicht",
+    "HOUSENUMBER": "Huisnummer",
+    "HOUSENUMBER_PLACEHOLDER": "Huisnummer",
+    "HOUSENUMBER_REQUIRED": "Huisnummer is verplicht",
+    "ZIPCODE": "Postcode",
+    "ZIPCODE_PLACEHOLDER": "Postcode",
+    "ZIPCODE_REQUIRED": "Postcode is verplicht",
+    "CITY": "Stad",
+    "CITY_PLACEHOLDER": "Stad",
+    "CITY_REQUIRED": "Stad is verplicht",
+    "PROVINCE": "Provincie",
+    "PROVINCE_PLACEHOLDER": "Provincie",
+    "PROVINCE_REQUIRED": "Provincie is verplicht",
+    "REGISTERING": "Bezig met registreren...",
+    "REGISTER_BUTTON": "Registreren",
+    "REGISTRATION_FAILED": "Registration failed. Check your information and try again.",
+    "FORM_INVALID": "Vul alle verplichte velden correct in."
+  },
+  "CART": {
+    "TITLE": "Winkelwagen",
+    "EMPTY": "Je winkelwagen is leeg!",
+    "ORDER_SUCCESS": "Je bestelling is geplaatst!",
+    "PRODUCT_IMAGE": "Plaatje van",
+    "QUANTITY": "Aantal",
+    "REMOVE": "Verwijderen",
+    "ORDER_SUMMARY": "Bestelling overzicht",
+    "TOTAL": "Totaal:",
+    "CHECKOUT_LOADING": "Bezig met afrekenen...",
+    "CHECKOUT": "Afrekenen",
+    "CHECKOUT_ERROR": "Er is iets misgegaan bij het afrekenen. Probeer het later opnieuw."
+  },
+  "PRODUCT_DETAIL": {
+    "CATEGORY": "Categorie",
+    "ARTIST": "Artiest(en):",
+    "GENRE": "Genre:",
+    "MEDIUM": "Drager:",
+    "IN_STOCK": "Op voorraad",
+    "ORDER_BEFORE": "Voor 23:59 besteld, morgen in huis",
+    "SOLD_BY": "Verkoop door Lutetia",
+    "ADD_TO_CART": "In winkelwagen"
+  },
+  "PRODUCT_LIST": {
+    "NO_PRODUCTS": "Er zijn geen producten in deze categorie."
+  },
+  "PROFILE": {
+    "TITLE": "Profiel",
+    "LOGOUT_TITLE": "Klik hier om uit te loggen",
+    "LOGOUT_BUTTON": "Uitloggen",
+    "ORDERS_TITLE": "Bestellingen",
+    "ORDER_ID": "Bestelling #",
+    "ORDER_DATE": "Datum",
+    "TOTAL_PRICE": "Totale prijs:",
+    "QUANTITY": "Aantal:",
+    "NO_ORDERS": "Je hebt nog geen bestellingen."
+  },
+  "AOTW": {
+    "TITLE": "Album van de week",
+    "BUY_NOW": "Koop nu"
+  },
+  "PRODUCT_CARD": {
+    "ADD_TO_CART": "In winkelwagen",
+    "MORE_INFO": "Meer info"
+  }
+}

@@ -4,20 +4,24 @@
   background-color: $secondary;
   height: 2.5vw;
   overflow: hidden;
+  display: flex;
 
    .scrolling-text {
      animation: scrolling-text 300s linear infinite;
      animation-play-state: running;
      display: inline-flex;
-     margin: .35em 0;
      white-space: nowrap;
+     margin: auto;
+     vertical-align: middle;
 
      span {
        margin-right: 20px;
        color: $primary;
        font-weight: bold;
        letter-spacing: 1px;
-       font-size: 1.15em;
+       font-size: 20px;
+       margin-top: auto;
+       margin-bottom: auto;
      }
    }
 }
@@ -44,7 +48,7 @@
     justify-content: center;
     padding-left: 4vw;
 
-    h1 {
+    h2 {
       font-weight: 200;
       letter-spacing: 1.5px;
       margin-bottom: -0.75rem;

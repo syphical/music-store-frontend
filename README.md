@@ -1,4 +1,4 @@
-Angular frontend for a full stack music store, built in 10 weeks while learning typescript, Angular, OOP programming in Java, and springboot.
+Angular frontend for a full stack music store, built in 10 weeks while learning typescript, Angular, OOP programming in Java, and Spring Boot.
 
 Backend repository can be found here: https://github.com/syphical/music-store-backend
 
